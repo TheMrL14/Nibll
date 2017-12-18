@@ -7,7 +7,7 @@ package be.ehb.IntegrationMultiscreen.model;
 
 /**
  *
- * @author lione
+ * @author Nibbl
  */
 public class Kamer {
     int kamerId;

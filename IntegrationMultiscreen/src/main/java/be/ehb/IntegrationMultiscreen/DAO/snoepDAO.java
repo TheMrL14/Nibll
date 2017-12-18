@@ -7,8 +7,7 @@ package be.ehb.IntegrationMultiscreen.DAO;
 import java.sql.*;
 import java.util.ArrayList;
 
-import be.lennertvandenherrewegen.model.Snoep;
-import be.lennertvandenherrewegen.model.Smaak;
+
 /**
  *
  * @author MaartenH

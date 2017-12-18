@@ -14,9 +14,9 @@ import javax.sql.rowset.RowSetProvider;
  * @author MaartenH
  */
 public class Database {
-    private static String locatieMysqlServer = "jdbc:mysql://localhost:3306/Snoep";
-    private static String gebruikersnaam = "root";
-    private static String wachtwoord = "";
+    private static String locatieMysqlServer = "dt5.ehb.be";
+    private static String gebruikersnaam = "IP1718004";
+    private static String wachtwoord = "86351249";
 
 	private static Connection getMijnConnectie() throws SQLException {
 		Connection mijnConnectie = null;

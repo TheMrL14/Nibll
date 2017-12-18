@@ -9,18 +9,18 @@ package be.ehb.IntegrationMultiscreen.model;
  *
  * @author lione
  */
-public class Favorieten {
-    int favorietenId;
+public class Favoriet {
+    int favorietId;
     String naamFavoriet;
     int deviceId;
     int profielId;
 
-    public int getFavorietenId() {
-        return favorietenId;
+    public int getFavorietId() {
+        return favorietId;
     }
 
-    public void setFavorietenId(int favorietenId) {
-        this.favorietenId = favorietenId;
+    public void setFavorietId(int favorietenId) {
+        this.favorietId = favorietId;
     }
 
     public String getNaamFavoriet() {
@@ -47,8 +47,8 @@ public class Favorieten {
         this.profielId = profielId;
     }
 
-    public Favorieten(int favorietenId, String naamFavoriet, int deviceId, int profielId) {
-        this.favorietenId = favorietenId;
+    public Favoriet(int favorietId, String naamFavoriet, int deviceId, int profielId) {
+        this.favorietId = favorietId;
         this.naamFavoriet = naamFavoriet;
         this.deviceId = deviceId;
         this.profielId = profielId;

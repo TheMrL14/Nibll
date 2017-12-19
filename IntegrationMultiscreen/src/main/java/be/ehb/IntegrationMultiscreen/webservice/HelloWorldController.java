@@ -50,13 +50,7 @@ public class HelloWorldController {
 		return "Uw voornaam is " + voornaam + " en uw achternaam is " + achternaam;
 	}
 
-	@RequestMapping("/zonderParametersEnGeavanceerdeReturn")
-	public Product zonderParametersEnGeavanceerdeReturn() {
-		// Defaults aanroepen met
-		// http://localhost:8080/zonderParametersEnGeavanceerdeReturn
-		Product mijnProductInformatie = new Product("Smartphone", 299.99);
-		return mijnProductInformatie;
-	}
+	
 	
 	@RequestMapping("/zonderParametersEnMeervoudigeGeavanceerdeReturn")
 	public ArrayList<Product> zonderParametersEnMeervoudigeGeavanceerdeReturn() {

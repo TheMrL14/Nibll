@@ -10,10 +10,10 @@ package be.ehb.IntegrationMultiscreen.model;
  * @author lione
  */
 public class Favoriet {
-    int favorietId;
-    String naamFavoriet;
-    int deviceId;
-    int profielId;
+    private int favorietId;
+    private String naamFavoriet;
+    private int deviceId;
+    private int profielId;
 
     public int getFavorietId() {
         return favorietId;

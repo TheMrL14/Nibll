@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
+        <!-- Customize your theme here. -->
+    <style name="CustomToolbarStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/donkerBlauw</item>
+    </style>
+    <!-- Menu Item theme -->
+    <style name="CustomPopuStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/lichtBlauw</item>
+        <item name="overlapAnchor">false</item>$
+        <item name="android:dropDownVerticalOffset">-4dp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4587A0</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="lichtBlauw">#5EACC7</color>
+    <color name="donkersteBlauw">#326270</color>
+    <color name="donkerBlauw">#4587A0</color>
+</resources>

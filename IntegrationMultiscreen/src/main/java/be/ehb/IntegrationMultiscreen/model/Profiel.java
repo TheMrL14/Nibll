@@ -10,8 +10,8 @@ package be.ehb.IntegrationMultiscreen.model;
  * @author lione
  */
 public class Profiel {
-    int profielId;
-    String naamProfiel;
+    private int profielId;
+    private String naamProfiel;
 
     public int getProfielId() {
         return profielId;

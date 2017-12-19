@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author MaartenH
  */
-public class activiteitenDAO {
+public class ActiviteitenDAO {
     public static ArrayList<Activiteit> getActiviteitjes() {
 		ArrayList<Activiteit> resultaat = new ArrayList<Activiteit>();
 		try {

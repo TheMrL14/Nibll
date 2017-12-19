@@ -17,7 +17,7 @@ public class ActiviteitenDAO {
     public static ArrayList<Activiteit> getActiviteit() {
 		ArrayList<Activiteit> resultaat = new ArrayList<Activiteit>();
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Activiteit");
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.Activiteiten");
 			if (mijnResultset != null) {
 				while (mijnResultset.next()) {
 					Activiteit huidigeActiviteit = converteerHuidigeRijNaarObject(mijnResultset);
@@ -35,7 +35,7 @@ public class ActiviteitenDAO {
 	public static Activiteit getActiviteitById(int id) {
 		Activiteit resultaat = null;
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Activiteit where ActiviteitId = ?", new Object[] { id });
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.Activiteiten where ActiviteitId = ?", new Object[] { id });
 			if (mijnResultset != null) {
 				mijnResultset.first();
 				resultaat = converteerHuidigeRijNaarObject(mijnResultset);
@@ -51,7 +51,7 @@ public class ActiviteitenDAO {
 	public static int voegActiviteitToe(Activiteit nieuweActiviteit) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO Activiteit (naamActiviteit, deviceId, outputActie,profielId,kamerId) VALUES (?,?,?,?,?)", new Object[] { nieuweActiviteit.getNaamActiviteit(), nieuweActiviteit.getDeviceId(), nieuweActiviteit.getOutputActie(), nieuweActiviteit.getProfielId(),nieuweActiviteit.getKamerId(), nieuweActiviteit.getActiviteitId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Activiteiten (naamActiviteit, deviceId, outputActie,profielId,kamerId) VALUES (?,?,?,?,?)", new Object[] { nieuweActiviteit.getNaamActiviteit(), nieuweActiviteit.getDeviceId(), nieuweActiviteit.getOutputActie(), nieuweActiviteit.getProfielId(),nieuweActiviteit.getKamerId(), nieuweActiviteit.getActiviteitId()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -62,7 +62,7 @@ public class ActiviteitenDAO {
 	public static int updateActiviteit(Activiteit nieuweActiviteit) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE Activiteit SET naamActiviteit = ?, deviceId = ?, outputActie = ?, profielId = ?, kamerId = ? WHERE activiteitId = ?", new Object[] {  nieuweActiviteit.getNaamActiviteit(), nieuweActiviteit.getDeviceId(), nieuweActiviteit.getOutputActie(), nieuweActiviteit.getProfielId(),nieuweActiviteit.getKamerId(), nieuweActiviteit.getActiviteitId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Activiteiten SET naamActiviteit = ?, deviceId = ?, outputActie = ?, profielId = ?, kamerId = ? WHERE activiteitId = ?", new Object[] {  nieuweActiviteit.getNaamActiviteit(), nieuweActiviteit.getDeviceId(), nieuweActiviteit.getOutputActie(), nieuweActiviteit.getProfielId(),nieuweActiviteit.getKamerId(), nieuweActiviteit.getActiviteitId()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -73,7 +73,7 @@ public class ActiviteitenDAO {
 	public static int verwijderActiviteit(int activiteitId) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM Activiteit WHERE ActiviteitId = ?", new Object[] { activiteitId });
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.Activiteiten WHERE ActiviteitId = ?", new Object[] { activiteitId });
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze

@@ -42,6 +42,7 @@ public class NibllController {
        ArrayList<Activiteit> alleActiviteiten = ActiviteitenDAO.getActiviteit();
        return alleActiviteiten;
     }
+    
     @RequestMapping("/getAllSensor")
     public ArrayList<Sensor> getAllSensor(){
        ArrayList<Sensor> alleActiviteiten = SensorDAO.getSensor();

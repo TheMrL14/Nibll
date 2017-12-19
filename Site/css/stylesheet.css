@@ -90,6 +90,12 @@ color: white;
 color: white;
 }
 
+.navTitle {
+  color: white;
+  clear: both;
+text-align: center;
+}
+
 .navText > a:hover{
     text-decoration: underline;
 }

@@ -17,7 +17,7 @@ public class SensorDAO {
     public static ArrayList<Sensor> getSensor() {
 		ArrayList<Sensor> resultaat = new ArrayList<Sensor>();
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Sensor");
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.Sensor");
 			if (mijnResultset != null) {
 				while (mijnResultset.next()) {
 					Sensor huidigeSensor = converteerHuidigeRijNaarObject(mijnResultset);
@@ -35,7 +35,7 @@ public class SensorDAO {
 	public static Sensor getSensorById(int id) {
 		Sensor resultaat = null;
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Sensor where SensorId = ?", new Object[] { id });
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.Sensor where sensorId = ?", new Object[] { id });
 			if (mijnResultset != null) {
 				mijnResultset.first();
 				resultaat = converteerHuidigeRijNaarObject(mijnResultset);
@@ -51,7 +51,7 @@ public class SensorDAO {
 	public static int voegSensorToe(Sensor nieuweSensor) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO Sensor (naamSensor, inputWaarde) VALUES (?,?)", new Object[] { nieuweSensor.getNaamSensor(), nieuweSensor.getInputWaarde()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Sensor (naamSensor, inputWaarde) VALUES (?,?)", new Object[] { nieuweSensor.getNaamSensor(), nieuweSensor.getInputWaarde()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -62,7 +62,7 @@ public class SensorDAO {
 	public static int updateSensor(Sensor nieuweSensor) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE Sensor SET naamSensor = ?, inputWaarde = ? WHERE sensorId = ?", new Object[] {  nieuweSensor.getNaamSensor(), nieuweSensor.getInputWaarde(),});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Sensor SET naamSensor = ?, inputWaarde = ? WHERE sensorId = ?", new Object[] {  nieuweSensor.getNaamSensor(), nieuweSensor.getInputWaarde(),});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -73,7 +73,7 @@ public class SensorDAO {
 	public static int verwijderSensor(int activiteitId) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM Sensor WHERE SensorId = ?", new Object[] { activiteitId });
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.Sensor WHERE sensorId = ?", new Object[] { activiteitId });
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -82,6 +82,6 @@ public class SensorDAO {
 	}
 
 	private static Sensor converteerHuidigeRijNaarObject(ResultSet mijnResultset) throws SQLException {
-		return new Sensor(mijnResultset.getInt("sesnorId"), mijnResultset.getString("naamSensor"), mijnResultset.getDouble("inputWaarde"));
+		return new Sensor(mijnResultset.getInt("sensorId"), mijnResultset.getString("naamSensor"), mijnResultset.getDouble("inputWaarde"));
 	}
 }

@@ -18,7 +18,7 @@ public class FavorietenDAO {
     public static ArrayList<Favoriet> getFavorieten() {
 		ArrayList<Favoriet> resultaat = new ArrayList<Favoriet>();
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Favorieten");
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.Favorieten");
 			if (mijnResultset != null) {
 				while (mijnResultset.next()) {
 					Favoriet huidigeSnoep = converteerHuidigeRijNaarObject(mijnResultset);
@@ -36,7 +36,7 @@ public class FavorietenDAO {
 	public static Favoriet getFavorietById(int id) {
 		Favoriet resultaat = null;
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Favorieten where favorietId = ?", new Object[] { id });
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.Favorieten where favorietId = ?", new Object[] { id });
 			if (mijnResultset != null) {
 				mijnResultset.first();
 				resultaat = converteerHuidigeRijNaarObject(mijnResultset);
@@ -52,7 +52,7 @@ public class FavorietenDAO {
 	public static int voegFavorietToe(Favoriet nieuweFavoriet) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO Favorieten (favorietId, naamFavoriet, deviceId,profielId) VALUES (?,?,?,?)", new Object[] { nieuweFavoriet.getFavorietId(), nieuweFavoriet.getNaamFavoriet(), nieuweFavoriet.getDeviceId(),nieuweFavoriet.getProfielId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Favorieten (favorietId, naamFavoriet, deviceId,profielId) VALUES (?,?,?,?)", new Object[] { nieuweFavoriet.getFavorietId(), nieuweFavoriet.getNaamFavoriet(), nieuweFavoriet.getDeviceId(),nieuweFavoriet.getProfielId()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -63,7 +63,7 @@ public class FavorietenDAO {
 	public static int updateFavoriet(Favoriet nieuweFavoriet) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE Favoriet SET favorietId = ?, naamFavoriet = ?, deviceId = ?,profielId WHERE favorietId = ?", new Object[] { nieuweFavoriet.getFavorietId(), nieuweFavoriet.getNaamFavoriet(), nieuweFavoriet.getDeviceId(), nieuweFavoriet.getProfielId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Favoriet SET favorietId = ?, naamFavoriet = ?, deviceId = ?,profielId WHERE favorietId = ?", new Object[] { nieuweFavoriet.getFavorietId(), nieuweFavoriet.getNaamFavoriet(), nieuweFavoriet.getDeviceId(), nieuweFavoriet.getProfielId()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -74,7 +74,7 @@ public class FavorietenDAO {
 	public static int verwijderFavoriet(int favorietId) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM Favoriet WHERE FavorietId = ?", new Object[] { favorietId });
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.Favoriet WHERE favorietId = ?", new Object[] { favorietId });
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze

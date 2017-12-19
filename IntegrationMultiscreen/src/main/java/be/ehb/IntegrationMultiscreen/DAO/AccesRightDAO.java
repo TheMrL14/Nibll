@@ -17,7 +17,7 @@ public class AccesRightDAO {
     public static ArrayList<AccesRight> getAccesRight() {
 		ArrayList<AccesRight> resultaat = new ArrayList<AccesRight>();
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from AccesRight");
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.AccesRight");
 			if (mijnResultset != null) {
 				while (mijnResultset.next()) {
 					AccesRight huidigeAccesRight = converteerHuidigeRijNaarObject(mijnResultset);
@@ -35,7 +35,7 @@ public class AccesRightDAO {
 	public static AccesRight getAccesRightById(int id) {
 		AccesRight resultaat = null;
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from AccesRight where AccesRightId = ?", new Object[] { id });
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.AccesRight where accesRightId = ?", new Object[] { id });
 			if (mijnResultset != null) {
 				mijnResultset.first();
 				resultaat = converteerHuidigeRijNaarObject(mijnResultset);
@@ -51,7 +51,7 @@ public class AccesRightDAO {
 	public static int voegAccesRightToe(AccesRight nieuweAccesRight) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO AccesRight (deviceId, profielId) VALUES (?,?)", new Object[] { nieuweAccesRight.getDeviceId(), nieuweAccesRight.getProfielId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004. AccesRight (deviceId, profielId) VALUES (?,?)", new Object[] { nieuweAccesRight.getDeviceId(), nieuweAccesRight.getProfielId()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -62,7 +62,7 @@ public class AccesRightDAO {
 	public static int updateAccesRight(AccesRight nieuweAccesRight) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE AccesRight SET deviceId = ?, profielId = ? WHERE accesRightId = ?", new Object[] {  nieuweAccesRight.getDeviceId(), nieuweAccesRight.getProfielId(),});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.AccesRight SET deviceId = ?, profielId = ? WHERE accesRightId = ?", new Object[] {  nieuweAccesRight.getDeviceId(), nieuweAccesRight.getProfielId(),});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -73,7 +73,7 @@ public class AccesRightDAO {
 	public static int verwijderAccesRight(int activiteitId) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM AccesRight WHERE AccesRightId = ?", new Object[] { activiteitId });
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.AccesRight WHERE accesRightId = ?", new Object[] { activiteitId });
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -82,6 +82,6 @@ public class AccesRightDAO {
 	}
 
 	private static AccesRight converteerHuidigeRijNaarObject(ResultSet mijnResultset) throws SQLException {
-		return new AccesRight(mijnResultset.getInt("sesnorId"), mijnResultset.getInt("deviceId"), mijnResultset.getInt("profielId"));
+		return new AccesRight(mijnResultset.getInt("sensorId"), mijnResultset.getInt("deviceId"), mijnResultset.getInt("profielId"));
 	}
 }

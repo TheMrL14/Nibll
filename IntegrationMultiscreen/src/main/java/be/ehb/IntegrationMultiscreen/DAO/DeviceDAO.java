@@ -17,7 +17,7 @@ public class DeviceDAO {
     public static ArrayList<Device> getDevice() {
 		ArrayList<Device> resultaat = new ArrayList<Device>();
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Device");
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.Device");
 			if (mijnResultset != null) {
 				while (mijnResultset.next()) {
 					Device huidigeDevice = converteerHuidigeRijNaarObject(mijnResultset);
@@ -35,7 +35,7 @@ public class DeviceDAO {
 	public static Device getDeviceById(int id) {
 		Device resultaat = null;
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Device where DeviceId = ?", new Object[] { id });
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.Device where deviceId = ?", new Object[] { id });
 			if (mijnResultset != null) {
 				mijnResultset.first();
 				resultaat = converteerHuidigeRijNaarObject(mijnResultset);
@@ -51,7 +51,7 @@ public class DeviceDAO {
 	public static int voegDeviceToe(Device nieuweDevice) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO Device (inputWaarde, outputWaarde, status, naamDevice, sensorId) VALUES (?,?,?,?,?)", new Object[] { nieuweDevice.getInputWaarde(), nieuweDevice.getOutputWaarde(), nieuweDevice.getStatus(), nieuweDevice.getNaamDevice(),nieuweDevice.getSensorId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Device (inputWaarde, outputWaarde, status, naamDevice, sensorId) VALUES (?,?,?,?,?)", new Object[] { nieuweDevice.getInputWaarde(), nieuweDevice.getOutputWaarde(), nieuweDevice.getStatus(), nieuweDevice.getNaamDevice(),nieuweDevice.getSensorId()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -62,7 +62,7 @@ public class DeviceDAO {
 	public static int updateDevice(Device nieuweDevice) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE Device SET inputWaarde = ?, outputWaarde = ?, status = ?, naamDevice = ?, sensorId = ? WHERE deviceId = ?", new Object[] {  nieuweDevice.getInputWaarde(), nieuweDevice.getOutputWaarde(), nieuweDevice.getStatus(), nieuweDevice.getNaamDevice(),nieuweDevice.getSensorId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Device SET inputWaarde = ?, outputWaarde = ?, status = ?, naamDevice = ?, sensorId = ? WHERE deviceId = ?", new Object[] {  nieuweDevice.getInputWaarde(), nieuweDevice.getOutputWaarde(), nieuweDevice.getStatus(), nieuweDevice.getNaamDevice(),nieuweDevice.getSensorId()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -73,7 +73,7 @@ public class DeviceDAO {
 	public static int verwijderDevice(int activiteitId) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM Device WHERE DeviceId = ?", new Object[] { activiteitId });
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.Device WHERE deviceId = ?", new Object[] { activiteitId });
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze

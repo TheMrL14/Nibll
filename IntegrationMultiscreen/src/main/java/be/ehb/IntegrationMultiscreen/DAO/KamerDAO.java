@@ -18,7 +18,7 @@ public class KamerDAO {
     public static ArrayList<Kamer> getKamers() {
 		ArrayList<Kamer> resultaat = new ArrayList<Kamer>();
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Kamer");
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.Kamer");
 			if (mijnResultset != null) {
 				while (mijnResultset.next()) {
 					Kamer huidigeSnoep = converteerHuidigeRijNaarObject(mijnResultset);
@@ -36,7 +36,7 @@ public class KamerDAO {
 	public static Kamer getKamerById(int id) {
 		Kamer resultaat = null;
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Kamer where kamerId = ?", new Object[] { id });
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.Kamer where kamerId = ?", new Object[] { id });
 			if (mijnResultset != null) {
 				mijnResultset.first();
 				resultaat = converteerHuidigeRijNaarObject(mijnResultset);
@@ -52,7 +52,7 @@ public class KamerDAO {
 	public static int voegKamerToe(Kamer nieuweKamer) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO Kamer (kamerId, sensorId, naamKamer) VALUES (?,?,?)", new Object[] { nieuweKamer.getKamerId(),nieuweKamer.getSensorId(),nieuweKamer.getNaamKamer()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Kamer (kamerId, sensorId, naamKamer) VALUES (?,?,?)", new Object[] { nieuweKamer.getKamerId(),nieuweKamer.getSensorId(),nieuweKamer.getNaamKamer()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -63,7 +63,7 @@ public class KamerDAO {
 	public static int updateKamer(Kamer nieuweKamer) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE Kamer SET kamerId = ?,sensorId=? ,naamKamer = ? WHERE kamerId = ?", new Object[] { nieuweKamer.getKamerId(), nieuweKamer.getNaamKamer()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Kamer SET kamerId = ?,sensorId=? ,naamKamer = ? WHERE kamerId = ?", new Object[] { nieuweKamer.getKamerId(), nieuweKamer.getNaamKamer()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -74,7 +74,7 @@ public class KamerDAO {
 	public static int verwijderKamer(int favorietId) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM Kamer WHERE KamerId = ?", new Object[] { favorietId });
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.Kamer WHERE kamerId = ?", new Object[] { favorietId });
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze

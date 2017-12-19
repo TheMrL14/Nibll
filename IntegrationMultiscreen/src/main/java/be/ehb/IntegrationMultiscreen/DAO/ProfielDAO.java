@@ -18,7 +18,7 @@ public class ProfielDAO {
     public static ArrayList<Profiel> getProfielen() {
 		ArrayList<Profiel> resultaat = new ArrayList<Profiel>();
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Profiel");
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.Profiel");
 			if (mijnResultset != null) {
 				while (mijnResultset.next()) {
 					Profiel huidigeSnoep = converteerHuidigeRijNaarObject(mijnResultset);
@@ -36,7 +36,7 @@ public class ProfielDAO {
 	public static Profiel getProfielById(int id) {
 		Profiel resultaat = null;
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Profiel where profielId = ?", new Object[] { id });
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.Profiel where profielId = ?", new Object[] { id });
 			if (mijnResultset != null) {
 				mijnResultset.first();
 				resultaat = converteerHuidigeRijNaarObject(mijnResultset);
@@ -52,7 +52,7 @@ public class ProfielDAO {
 	public static int voegProfielToe(Profiel nieuweProfiel) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO Profiel (profielId, naamProfiel) VALUES (?,?)", new Object[] { nieuweProfiel.getProfielId(),nieuweProfiel.getNaamProfiel()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Profiel (profielId, naamProfiel) VALUES (?,?)", new Object[] { nieuweProfiel.getProfielId(),nieuweProfiel.getNaamProfiel()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -63,7 +63,7 @@ public class ProfielDAO {
 	public static int updateProfiel(Profiel nieuweProfiel) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE Profiel SET profielId = ?,naamProfiel = ? WHERE profielId = ?", new Object[] { nieuweProfiel.getProfielId(), nieuweProfiel.getNaamProfiel()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Profiel SET profielId = ?,naamProfiel = ? WHERE profielId = ?", new Object[] { nieuweProfiel.getProfielId(), nieuweProfiel.getNaamProfiel()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -74,7 +74,7 @@ public class ProfielDAO {
 	public static int verwijderProfiel(int favorietId) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM Profiel WHERE ProfielId = ?", new Object[] { favorietId });
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.Profiel WHERE profielId = ?", new Object[] { favorietId });
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze

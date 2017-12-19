@@ -33,10 +33,10 @@ public class FavorietenDAO {
 		return resultaat;
 	}
 
-	public static Favoriet getSnoepById(int id) {
-		Snoep resultaat = null;
+	public static Favoriet getFavorietById(int id) {
+		Favoriet resultaat = null;
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Favorieten where FavorietId = ?", new Object[] { id });
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Favorieten where favorietId = ?", new Object[] { id });
 			if (mijnResultset != null) {
 				mijnResultset.first();
 				resultaat = converteerHuidigeRijNaarObject(mijnResultset);
@@ -49,7 +49,7 @@ public class FavorietenDAO {
 		return resultaat;
 	}
 
-	public static int voegSnoepToe(Favoriet nieuweFavoriet) {
+	public static int voegFavorietToe(Favoriet nieuweFavoriet) {
 		int aantalAangepasteRijen = 0;
 		try {
 			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO Favorieten (favorietId, naamFavoriet, deviceId,profielId) VALUES (?,?,?,?)", new Object[] { nieuweFavoriet.getFavorietId(), nieuweFavoriet.getNaamFavoriet(), nieuweFavoriet.getDeviceId(),nieuweFavoriet.getProfielId()});
@@ -60,10 +60,10 @@ public class FavorietenDAO {
 		return aantalAangepasteRijen;
 	}
 
-	public static int updateSnoep(Favoriet nieuweSnoep) {
+	public static int updateFavoriet(Favoriet nieuweFavoriet) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE Snoep SET smaakId = ?, naam = ?, chaloriewaarde = ? WHERE SnoepId = ?", new Object[] { nieuweSnoep.getSmaakId(), nieuweSnoep.getNaam(), nieuweSnoep.getCaloriewaarde(), nieuweSnoep.getSnoepId() });
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE Favoriet SET favorietId = ?, naamFavoriet = ?, deviceId = ?,profielId WHERE favorietId = ?", new Object[] { nieuweFavoriet.getFavorietId(), nieuweFavoriet.getNaamFavoriet(), nieuweFavoriet.getDeviceId(), nieuweFavoriet.getProfielId()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -71,10 +71,10 @@ public class FavorietenDAO {
 		return aantalAangepasteRijen;
 	}
 
-	public static int verwijderSnoep(int snoepId) {
+	public static int verwijderFavoriet(int favorietId) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM Snoep WHERE SnoepId = ?", new Object[] { snoepId });
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM Favoriet WHERE FavorietId = ?", new Object[] { favorietId });
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -82,7 +82,7 @@ public class FavorietenDAO {
 		return aantalAangepasteRijen;
 	}
 
-	private static Snoep converteerHuidigeRijNaarObject(ResultSet mijnResultset) throws SQLException {
-		return new Snoep(mijnResultset.getInt("snoepId"), mijnResultset.getInt("smaakId"), mijnResultset.getString("naam"), mijnResultset.getInt("chaloriewaarde"));
+	private static Favoriet converteerHuidigeRijNaarObject(ResultSet mijnResultset) throws SQLException {
+		return new Favoriet(mijnResultset.getInt("favorietId"), mijnResultset.getString("naamFavoriet"), mijnResultset.getInt("deviceId"), mijnResultset.getInt("profielId"));
 	}
 }

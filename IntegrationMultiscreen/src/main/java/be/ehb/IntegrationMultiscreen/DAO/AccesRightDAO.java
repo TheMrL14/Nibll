@@ -76,6 +76,7 @@ public class AccesRightDAO {
 			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.AccesRight WHERE accesRightId = ?", new Object[] { activiteitId });
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+                        
 			// Foutafhandeling naar keuze
 		}
 		return aantalAangepasteRijen;

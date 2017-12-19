@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-//import be.ehb.IntegrationMultiscreen.model.Product;
+import be.ehb.IntegrationMultiscreen.model.AccesRight;
 
 @RestController
 public class HelloWorldController {
@@ -109,7 +109,7 @@ public class HelloWorldController {
 		for(Product huidigProduct: productenLijst){
 			resultaat = resultaat + " " + huidigProduct.getNaam();
 		}
-		return resultaat;
+		return resultaat:
 	}
 	
 	

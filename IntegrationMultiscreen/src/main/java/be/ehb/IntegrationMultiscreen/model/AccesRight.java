@@ -10,9 +10,9 @@ package be.ehb.IntegrationMultiscreen.model;
  * @author lione
  */
 public class AccesRight {
-    int accesRightId;
-    int deviceId;
-    int profielId;
+   private int accesRightId;
+   private int deviceId;
+   private int profielId;
 
     public int getAccesRightId() {
         return accesRightId;

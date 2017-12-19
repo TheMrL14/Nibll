@@ -62,7 +62,7 @@ public class ActiviteitenDAO {
 	public static int updateActiviteit(Activiteit nieuweActiviteit) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE Activiteit SET naamActiviteit = ?, deviceId = ?, outputActie = ?, profielId = ?, kamerId = ? WHERE ActiviteitId = ?", new Object[] {  nieuweActiviteit.getNaamActiviteit(), nieuweActiviteit.getDeviceId(), nieuweActiviteit.getOutputActie(), nieuweActiviteit.getProfielId(),nieuweActiviteit.getKamerId(), nieuweActiviteit.getActiviteitId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE Activiteit SET naamActiviteit = ?, deviceId = ?, outputActie = ?, profielId = ?, kamerId = ? WHERE activiteitId = ?", new Object[] {  nieuweActiviteit.getNaamActiviteit(), nieuweActiviteit.getDeviceId(), nieuweActiviteit.getOutputActie(), nieuweActiviteit.getProfielId(),nieuweActiviteit.getKamerId(), nieuweActiviteit.getActiviteitId()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze

@@ -10,9 +10,9 @@ package be.ehb.IntegrationMultiscreen.model;
  * @author Nibbl
  */
 public class Kamer {
-    int kamerId;
-    int sensorId;
-    String naamKamer;
+    private int kamerId;
+    private int sensorId;
+    private String naamKamer;
 
     public int getKamerId() {
         return kamerId;

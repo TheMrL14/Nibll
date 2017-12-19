@@ -1,0 +1,107 @@
+* {
+   margin: 0;
+   padding: 0;
+    font-family: "helvetica";
+}
+
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.header-navbar{
+   background: #4587a0;
+    padding: 1% 0;
+}
+.navBar-left{
+    margin-left: 2%;
+}
+.navBar-right {
+    float: right;
+    margin-right: 2%;
+}
+
+.navText {
+    margin: 0 0.8%;
+    float: left
+}
+
+.navIcons {
+    height: 30px;
+    width: 30px;
+    margin: 0 0.5em;
+    float: left;
+}
+
+.navIcons > a {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.navText > a{
+    color: white;
+    font-size: 2em;
+}
+.addRoom > input {
+    background: url(../img/add.svg) no-repeat;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+.settings{
+    background: url(../img/settings.svg);
+}
+
+.rooms-container {
+    margin: 1em auto 0;
+    width: 90%;
+}
+
+.roomsTile {
+    background: #5eacc7;
+    height: 100px;
+    width: 23%;
+    float: left;
+    margin: 0.5em 1%;
+    line-height: 100px;
+    text-align: center;
+}
+.roomsTile > h3{
+color: white;
+}
+
+.activities-container {
+    margin: 1em auto 0;
+    width: 90%;
+}
+
+.activitiesTile {
+    background: #5eacc7;
+    height: 100px;
+    width: 23%;
+    float: left;
+    margin: 0.5em 1%;
+    line-height: 100px;
+    text-align: center;
+}
+.activitiesTile > h3{
+color: white;
+}
+
+.navTitle {
+  color: white;
+  clear: both;
+text-align: center;
+}
+
+.navText > a:hover{
+    text-decoration: underline;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

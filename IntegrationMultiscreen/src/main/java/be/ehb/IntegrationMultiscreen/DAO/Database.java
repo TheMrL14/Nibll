@@ -11,10 +11,10 @@ import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
 /**
  *
- * @author MaartenH
+ * @author Lennert
  */
 public class Database {
-    private static String locatieMysqlServer = "dt5.ehb.be";
+    private static String locatieMysqlServer = "jdbc:mysql://dt5.ehb.be/IP1718004";
     private static String gebruikersnaam = "IP1718004";
     private static String wachtwoord = "86351249";
 

@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author Lennert
  */
-public class sensorDAO {
+public class SensorDAO {
     public static ArrayList<Sensor> getSensor() {
 		ArrayList<Sensor> resultaat = new ArrayList<Sensor>();
 		try {

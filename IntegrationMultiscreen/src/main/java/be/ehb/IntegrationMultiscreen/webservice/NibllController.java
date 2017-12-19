@@ -13,16 +13,16 @@ import be.ehb.IntegrationMultiscreen.DAO.ProfielDAO;
 import be.ehb.IntegrationMultiscreen.DAO.sensorDAO;
 import be.ehb.IntegrationMultiscreen.model.Activiteit;
 import be.ehb.IntegrationMultiscreen.model.Device;
-import be.ehb.IntegrationMultiscreen.model.Favoriet;import be.ehb.IntegrationMultiscreen.model.Kamer;
+import be.ehb.IntegrationMultiscreen.model.Favoriet;
+import be.ehb.IntegrationMultiscreen.model.Kamer;
 import be.ehb.IntegrationMultiscreen.model.Profiel;
-s
 import be.ehb.IntegrationMultiscreen.model.Sensor;
 import java.util.ArrayList;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.util.MultiValueMap;
+//import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -59,6 +59,12 @@ public class NibllController {
        return alleProfiel;
     }
 //--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------/getById
 //--------------------------------------------------------------------------------------------------------------------
+    
+    
+    
+    //--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------/getById
 //--------------------------------------------------------------------------------------------------------------------
 }

@@ -82,6 +82,6 @@ public class AccesRightDAO {
 	}
 
 	private static AccesRight converteerHuidigeRijNaarObject(ResultSet mijnResultset) throws SQLException {
-		return new AccesRight(mijnResultset.getInt("sensorId"), mijnResultset.getInt("deviceId"), mijnResultset.getInt("profielId"));
+		return new AccesRight(mijnResultset.getInt("accesRightId"), mijnResultset.getInt("profielId"), mijnResultset.getInt("deviceId"));
 	}
 }

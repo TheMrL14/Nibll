@@ -52,7 +52,7 @@ public class KamerDAO {
 	public static int voegKamerToe(Kamer nieuweKamer) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Kamer (kamerId, sensorId, naamKamer) VALUES (?,?,?)", new Object[] { nieuweKamer.getKamerId(),nieuweKamer.getSensorId(),nieuweKamer.getNaamKamer()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Kamer (kamerId, sensorId,deviceId, naamKamer) VALUES (?,?,?)", new Object[] { nieuweKamer.getKamerId(),nieuweKamer.getSensorId(),nieuweKamer.getNaamKamer()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -63,7 +63,7 @@ public class KamerDAO {
 	public static int updateKamer(Kamer nieuweKamer) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Kamer SET kamerId = ?,sensorId=? ,naamKamer = ? WHERE kamerId = ?", new Object[] { nieuweKamer.getKamerId(), nieuweKamer.getNaamKamer()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Kamer SET sensorId=?,deviceId=? ,naamKamer = ? WHERE kamerId = ?", new Object[] {  nieuweKamer.getSensorId(), nieuweKamer.getDeviceId(), nieuweKamer.getNaamKamer(),});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -83,6 +83,6 @@ public class KamerDAO {
 	}
 
 	private static Kamer converteerHuidigeRijNaarObject(ResultSet mijnResultset) throws SQLException {
-		return new Kamer(mijnResultset.getInt("kamerId"), mijnResultset.getInt("sensorId"), mijnResultset.getString("naamKamer"));
+		return new Kamer(mijnResultset.getInt("kamerId"), mijnResultset.getInt("sensorId"),mijnResultset.getInt("deviceId"), mijnResultset.getString("naamKamer"));
 	}
 }

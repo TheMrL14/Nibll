@@ -12,8 +12,21 @@ package be.ehb.IntegrationMultiscreen.model;
 public class Kamer {
     private int kamerId;
     private int sensorId;
+    private int deviceId;
     private String naamKamer;
 
+    public int getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(int deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    
+    
+    
+    
     public int getKamerId() {
         return kamerId;
     }
@@ -38,7 +51,7 @@ public class Kamer {
         this.naamKamer = naamKamer;
     }
 
-    public Kamer(int kamerId, int sensorId, String naamKamer) {
+    public Kamer(int kamerId, int sensorId,int deviceId, String naamKamer) {
         this.kamerId = kamerId;
         this.sensorId = sensorId;
         this.naamKamer = naamKamer;

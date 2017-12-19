@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ninjawulf98.integration">
+    package="com.example.bojan.nibllbojan">
 
     <application
         android:allowBackup="true"
@@ -9,14 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Settings_Login" />
-        <activity android:name=".ScanActivity">
+        <activity android:name=".NibllStart">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Home" />
+        <activity
+            android:name=".Random"
+            android:label="@string/title_activity_random"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

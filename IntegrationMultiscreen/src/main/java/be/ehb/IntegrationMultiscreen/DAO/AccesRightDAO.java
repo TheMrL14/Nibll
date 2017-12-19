@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author Lennert
  */
-public class accesRightDAO {
+public class AccesRightDAO {
     public static ArrayList<AccesRight> getAccesRight() {
 		ArrayList<AccesRight> resultaat = new ArrayList<AccesRight>();
 		try {

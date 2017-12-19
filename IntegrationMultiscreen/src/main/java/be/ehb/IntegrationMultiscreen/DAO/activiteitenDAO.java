@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author MaartenH
  */
 public class ActiviteitenDAO {
-    public static ArrayList<Activiteit> getActiviteitjes() {
+    public static ArrayList<Activiteit> getActiviteit() {
 		ArrayList<Activiteit> resultaat = new ArrayList<Activiteit>();
 		try {
 			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from Activiteit");

@@ -119,7 +119,7 @@ public class NibllController {
 		return profiel;
         }   
     @RequestMapping("/test")
-	public String getProfielById() {
+	public String test() {
 		// Defaults aanroepen met
 		// http://localhost:8080/test
 		// Custom aanroepen met

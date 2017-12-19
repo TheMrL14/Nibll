@@ -118,7 +118,15 @@ public class NibllController {
                                     Profiel profiel = ProfielDAO.getProfielById(id);
 		return profiel;
         }   
-    
+    @RequestMapping("/test")
+	public String getProfielById() {
+		// Defaults aanroepen met
+		// http://localhost:8080/test
+		// Custom aanroepen met
+                System.out.println("hallo");
+                                    String test = "hallo";
+		return test;
+        }   
 
 //--------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------/getById

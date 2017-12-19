@@ -10,21 +10,21 @@ package be.ehb.IntegrationMultiscreen.model;
  * @author Lennert
  */
 public class Device {
-    private int deviceID;
+    private int deviceId;
     private double inputWaarde;
     private double outputWaarde;
     private boolean status;
     private String naamDevice;
-    private int sensorID;
+    private int sensorId;
     
     //--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__SETTERS EN GETTERS
 
-    public int getDeviceID() {
-        return deviceID;
+    public int getDeviceId() {
+        return deviceId;
     }
 
-    public void setDeviceID(int deviceID) {
-        this.deviceID = deviceID;
+    public void setDeviceId(int deviceId) {
+        this.deviceId = deviceId;
     }
 
     public double getInputWaarde() {
@@ -43,7 +43,7 @@ public class Device {
         this.outputWaarde = outputWaarde;
     }
 
-    public boolean isStatus() {
+    public boolean getStatus() {
         return status;
     }
 
@@ -59,22 +59,22 @@ public class Device {
         this.naamDevice = naamDevice;
     }
 
-    public int getSensorID() {
-        return sensorID;
+    public int getSensorId() {
+        return sensorId;
     }
 
-    public void setSensorID(int sensorID) {
-        this.sensorID = sensorID;
+    public void setSensorId(int sensorId) {
+        this.sensorId = sensorId;
     }
   //--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__CONSTRUCTOR  
 
-    public Device(int deviceID, double inputWaarde, double outputWaarde, boolean status, String naamDevice, int sensorID) {
-        this.deviceID = deviceID;
+    public Device(int deviceId, double inputWaarde, double outputWaarde, boolean status, String naamDevice, int sensorId) {
+        this.deviceId = deviceId;
         this.inputWaarde = inputWaarde;
         this.outputWaarde = outputWaarde;
         this.status = status;
         this.naamDevice = naamDevice;
-        this.sensorID = sensorID;
+        this.sensorId = sensorId;
     }
     
     

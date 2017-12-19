@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author Lennert
  */
-public class SensorDAO {
+public class sensorDAO {
     public static ArrayList<Sensor> getSensor() {
 		ArrayList<Sensor> resultaat = new ArrayList<Sensor>();
 		try {
@@ -62,7 +62,7 @@ public class SensorDAO {
 	public static int updateSensor(Sensor nieuweSensor) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE Sensor SET naamSensor = ?, inputWaarde = ? WHERE SensorId = ?", new Object[] {  nieuweSensor.getNaamSensor(), nieuweSensor.getInputWaarde(),});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE Sensor SET naamSensor = ?, inputWaarde = ? WHERE sensorId = ?", new Object[] {  nieuweSensor.getNaamSensor(), nieuweSensor.getInputWaarde(),});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze

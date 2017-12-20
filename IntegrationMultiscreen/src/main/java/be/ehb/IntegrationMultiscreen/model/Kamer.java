@@ -56,4 +56,7 @@ public class Kamer {
         this.sensorId = sensorId;
         this.naamKamer = naamKamer;
     }
+    public Kamer(){
+        
+    }
 }

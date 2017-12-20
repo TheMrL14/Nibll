@@ -76,6 +76,8 @@ public class Device {
         this.naamDevice = naamDevice;
         this.sensorId = sensorId;
     }
-    
+   public Device(){
+       
+   } 
     
 }

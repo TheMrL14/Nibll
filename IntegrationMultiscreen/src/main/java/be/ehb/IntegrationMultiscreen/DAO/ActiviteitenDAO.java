@@ -51,7 +51,7 @@ public class ActiviteitenDAO {
 	public static int voegActiviteitToe(Activiteit nieuweActiviteit) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Activiteiten (naamActiviteit, deviceId, outputActie,profielId,kamerId) VALUES (?,?,?,?,?)", new Object[] { nieuweActiviteit.getNaamActiviteit(), nieuweActiviteit.getDeviceId(), nieuweActiviteit.getOutputActie(), nieuweActiviteit.getProfielId(),nieuweActiviteit.getKamerId(), nieuweActiviteit.getActiviteitId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Activiteiten (naamActiviteit, deviceId, outputActie,profielId,kamerId) VALUES (?,?,?,?,?)", new Object[] { nieuweActiviteit.getNaamActiviteit(), nieuweActiviteit.getDeviceId(), nieuweActiviteit.getOutputActie(), nieuweActiviteit.getProfielId(),nieuweActiviteit.getKamerId()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze

@@ -33,4 +33,8 @@ public class Profiel {
         this.profielId = profielId;
         this.naamProfiel = naamProfiel;
     }
+    
+    public Profiel(){
+        
+    }
 }

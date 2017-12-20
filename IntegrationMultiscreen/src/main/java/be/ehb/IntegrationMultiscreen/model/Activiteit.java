@@ -77,5 +77,8 @@ public class Activiteit {
         this.kamerId = kamerId;
     }
     
+    public Activiteit(){
+        
+    }
     
 }

@@ -43,6 +43,8 @@ public class AccesRight {
         this.deviceId = deviceId;
         this.profielId = profielId;
     }
-    
+    public AccesRight(){
+        
+    }
     
 }

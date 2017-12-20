@@ -45,6 +45,8 @@ public class Sensor {
         this.naamSensor = naamSensor;
         this.inputWaarde = inputWaarde;
     }
-    
+    public Sensor(){
+        
+    }
     
 }

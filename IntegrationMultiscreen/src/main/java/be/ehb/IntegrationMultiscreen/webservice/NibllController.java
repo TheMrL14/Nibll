@@ -19,9 +19,12 @@ import be.ehb.IntegrationMultiscreen.model.Kamer;
 import be.ehb.IntegrationMultiscreen.model.Profiel;
 import be.ehb.IntegrationMultiscreen.model.Sensor;
 import java.util.ArrayList;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestBody;
 //import org.springframework.util.MultiValueMap;
 //import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 //import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,25 +35,17 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Lennert
  */
 @RestController
-@RequestMapping("test")
+@RequestMapping("/test")
 public class NibllController {
  //--------------------------------------------------------------------------------------------------------------------/GET ALL
 //--------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------
-	@RequestMapping("/getAllActiviteit")
-    public ArrayList<Activiteit> getAllActiviteit(){
-       ArrayList<Activiteit> alleActiviteiten = ActiviteitenDAO.getActiviteit();
-       return alleActiviteiten;
-    }
+
     
     @RequestMapping("/getAllSensor")
     public ArrayList<Sensor> getAllSensor(){
        ArrayList<Sensor> alleActiviteiten = SensorDAO.getSensor();
        return alleActiviteiten;
-    }@RequestMapping("/getAllDevice")
-    public ArrayList<Device> getAllDevice(){
-       ArrayList<Device> alleDevice = DeviceDAO.getDevice();
-       return alleDevice;
     }@RequestMapping("/getAllFavorieten")
     public ArrayList<Favoriet> getAllFavorieten(){
        ArrayList<Favoriet> alleFavorieten = FavorietenDAO.getFavorieten();
@@ -67,15 +62,7 @@ public class NibllController {
 //--------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------/getById
 //--------------------------------------------------------------------------------------------------------------------
- @RequestMapping("/getActiviteitById")
-	public Activiteit getActiviteitById(@RequestParam(value = "id", defaultValue = "0") int id) {
-		// Defaults aanroepen met
-		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
-		// Custom aanroepen met
-		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn?naam=Maarten
-                                    Activiteit activiteit = ActiviteitenDAO.getActiviteitById(id);
-		return activiteit;
-	}
+ 
         
         @RequestMapping("/getSensorById")
 	public Sensor getSensorById(@RequestParam(value = "id", defaultValue = "0") int id) {
@@ -86,15 +73,7 @@ public class NibllController {
                                     Sensor sensor = SensorDAO.getSensorById(id);
 		return sensor;
 	}
-        @RequestMapping("/getDeviceById")
-	public Device getDeviceById(@RequestParam(value = "id", defaultValue = "0") int id) {
-		// Defaults aanroepen met
-		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
-		// Custom aanroepen met
-		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn?naam=Maarten
-                                    Device device = DeviceDAO.getDeviceById(id);
-		return device;
-	}
+        
         @RequestMapping("/getFavorietentById")
 	public Favoriet getFavorietById(@RequestParam(value = "id", defaultValue = "0") int id) {
 		// Defaults aanroepen met
@@ -121,18 +100,48 @@ public class NibllController {
 		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn?naam=Maarten
                                     Profiel profiel = ProfielDAO.getProfielById(id);
 		return profiel;
-        }   
-    @RequestMapping("/test")
-	public String test() {
-		// Defaults aanroepen met
-		// http://localhost:8080/test
-		// Custom aanroepen met
-                System.out.println("hallo");
-                                    String test = "hallo";
-		return test;
-        }   
+        }     
 
 //--------------------------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------------------------------/getById
+//--------------------------------------------------------------------------------------------------------------------/POST
 //--------------------------------------------------------------------------------------------------------------------
+        
+        
+
+@RequestMapping(value ="/PostFavoriet",method = RequestMethod.POST)
+	public void PostFavoriet(@RequestBody Favoriet newFavoriet) {
+		// Defaults aanroepen met
+		// http://localhost:8080/test/Postactiviteiten
+		// newActiviteit = (new Activiteit(0,newActiviteit.getNaamActiviteit("naamActiviteit"),);
+                FavorietenDAO.voegFavorietToe(newFavoriet);    
+}
+@RequestMapping(value ="/PostKamer",method = RequestMethod.POST)
+	public void PostKamer(@RequestBody Kamer newKamer) {
+		// Defaults aanroepen met
+		// http://localhost:8080/test/Postactiviteiten
+		// newActiviteit = (new Activiteit(0,newActiviteit.getNaamActiviteit("naamActiviteit"),);
+                KamerDAO.voegKamerToe(newKamer);    
+}
+        @RequestMapping(value ="/PostProfiel",method = RequestMethod.POST)
+	public void PostProfiel(@RequestBody Profiel newProfiel) {
+		// Defaults aanroepen met
+		// http://localhost:8080/test/Postactiviteiten
+		// newActiviteit = (new Activiteit(0,newActiviteit.getNaamActiviteit("naamActiviteit"),);
+                ProfielDAO.voegProfielToe(newProfiel);    
+}
+@RequestMapping(value ="/PostSensor",method = RequestMethod.POST)
+	public void PostDevice(@RequestBody Sensor newSensor) {
+		// Defaults aanroepen met
+		// http://localhost:8080/test/Postactiviteiten
+		// newActiviteit = (new Activiteit(0,newActiviteit.getNaamActiviteit("naamActiviteit"),);
+                SensorDAO.voegSensorToe(newSensor);    
+}    
+   @RequestMapping(value ="/checkStatus",method = RequestMethod.GET)
+	public void checkStatus(@RequestBody Sensor newSensor) {
+		// Defaults aanroepen met
+		// http://localhost:8080/test/Postactiviteiten
+		// newActiviteit = (new Activiteit(0,newActiviteit.getNaamActiviteit("naamActiviteit"),);
+                SensorDAO.voegSensorToe(newSensor);    
+}         
+        
 }

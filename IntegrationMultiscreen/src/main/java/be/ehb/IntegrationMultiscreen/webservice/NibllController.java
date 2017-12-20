@@ -5,30 +5,15 @@
  */
 package be.ehb.IntegrationMultiscreen.webservice;
 
-import be.ehb.IntegrationMultiscreen.DAO.ActiviteitenDAO;
-import be.ehb.IntegrationMultiscreen.DAO.DeviceDAO;
-import be.ehb.IntegrationMultiscreen.DAO.FavorietenDAO;
-import be.ehb.IntegrationMultiscreen.DAO.KamerDAO;
-import be.ehb.IntegrationMultiscreen.DAO.ProfielDAO;
-
 import be.ehb.IntegrationMultiscreen.DAO.SensorDAO;
-import be.ehb.IntegrationMultiscreen.model.Activiteit;
-import be.ehb.IntegrationMultiscreen.model.Device;
-import be.ehb.IntegrationMultiscreen.model.Favoriet;
-import be.ehb.IntegrationMultiscreen.model.Kamer;
-import be.ehb.IntegrationMultiscreen.model.Profiel;
 import be.ehb.IntegrationMultiscreen.model.Sensor;
-import java.util.ArrayList;
-import org.springframework.util.MultiValueMap;
+
 import org.springframework.web.bind.annotation.RequestBody;
 //import org.springframework.util.MultiValueMap;
 //import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-//import org.springframework.web.bind.annotation.RequestMethod;
-//import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *

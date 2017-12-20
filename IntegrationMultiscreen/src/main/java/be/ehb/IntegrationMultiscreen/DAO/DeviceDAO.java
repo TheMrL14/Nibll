@@ -51,7 +51,7 @@ public class DeviceDAO {
 	public static int voegDeviceToe(Device nieuweDevice) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Device (inputWaarde, outputWaarde, status, naamDevice, sensorId) VALUES (?,?,?,?,?)", new Object[] { nieuweDevice.getInputWaarde(), nieuweDevice.getOutputWaarde(), nieuweDevice.getStatus(), nieuweDevice.getNaamDevice(),nieuweDevice.getSensorId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Device (inputWaarde, outputWaarde, status, naamDevice, sensorId) VALUES (?,?,?,?)", new Object[] { nieuweDevice.getInputWaarde(), nieuweDevice.getOutputWaarde(), nieuweDevice.getStatus(), nieuweDevice.getNaamDevice()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -62,7 +62,7 @@ public class DeviceDAO {
 	public static int updateDevice(Device nieuweDevice) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Device SET inputWaarde = ?, outputWaarde = ?, status = ?, naamDevice = ?, sensorId = ? WHERE deviceId = ?", new Object[] {  nieuweDevice.getInputWaarde(), nieuweDevice.getOutputWaarde(), nieuweDevice.getStatus(), nieuweDevice.getNaamDevice(),nieuweDevice.getSensorId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Device SET inputWaarde = ?, outputWaarde = ?, status = ?, naamDevice = ? WHERE deviceId = ?", new Object[] {  nieuweDevice.getInputWaarde(), nieuweDevice.getOutputWaarde(), nieuweDevice.getStatus(), nieuweDevice.getNaamDevice()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -82,6 +82,6 @@ public class DeviceDAO {
 	}
 
 	private static Device converteerHuidigeRijNaarObject(ResultSet mijnResultset) throws SQLException {
-		return new Device(mijnResultset.getInt("deviceId"), mijnResultset.getDouble("inputWaarde"), mijnResultset.getDouble("outputWaarde"),mijnResultset.getBoolean("status"),mijnResultset.getString("naamDevice"), mijnResultset.getInt("sensorId"));
+		return new Device(mijnResultset.getInt("deviceId"), mijnResultset.getDouble("inputWaarde"), mijnResultset.getDouble("outputWaarde"),mijnResultset.getBoolean("status"),mijnResultset.getString("naamDevice"));
 	}
 }

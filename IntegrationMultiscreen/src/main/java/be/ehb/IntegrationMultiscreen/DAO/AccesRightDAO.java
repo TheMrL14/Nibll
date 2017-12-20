@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package be.ehb.IntegrationMultiscreen.DAO;
-import be.ehb.IntegrationMultiscreen.model.AccesRight;
+import be.ehb.IntegrationMultiscreen.viewModel.AccesRight;
 import java.sql.*;
 import java.util.ArrayList;
 

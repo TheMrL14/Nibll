@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Lennert
  */
 @RestController
-@RequestMapping("/Device")
+@RequestMapping("/device")
 public class DeviceController {
     @RequestMapping("/getAll")
     public ArrayList<Device> getAllDevice(){

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Lennert
  */
 @RestController
-@RequestMapping("/Kamer")
+@RequestMapping("/kamer")
 public class KamerController {
     @RequestMapping("/getAll")
     public ArrayList<Kamer> getAllKamer(){
@@ -35,7 +35,7 @@ public class KamerController {
                                     Kamer kamer = KamerDAO.getKamerById(id);
 		return kamer;
 	}
-        @RequestMapping(value ="/Post",method = RequestMethod.POST)
+        @RequestMapping(value ="/post",method = RequestMethod.POST)
 	public void PostKamer(@RequestBody Kamer newKamer) {
 		// Defaults aanroepen met
 		// http://localhost:8080/test/Postactiviteiten

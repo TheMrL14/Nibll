@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/Activiteit")
+@RequestMapping("/activiteit")
 public class ActiviteitenController {
     
   	@RequestMapping("/getAll")
@@ -34,7 +34,7 @@ public class ActiviteitenController {
                 Activiteit activiteit = ActiviteitenDAO.getActiviteitById(id);
 		return activiteit;
 	}
-        @RequestMapping(value ="/Postactiviteiten",method = RequestMethod.POST)
+        @RequestMapping(value ="/post",method = RequestMethod.POST)
 	public void Postactiviteiten(@RequestBody Activiteit newActiviteit) {
 		// Defaults aanroepen met
 		// http://localhost:8080/test/Postactiviteiten

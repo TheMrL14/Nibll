@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Lennert
  */
 @RestController
-@RequestMapping("/Favoriet")
+@RequestMapping("/favoriet")
 public class FavorietenController {
     @RequestMapping("/getAll")
     public ArrayList<Favoriet> getAllFavorieten(){
@@ -35,7 +35,7 @@ public class FavorietenController {
                                     Favoriet favoriet = FavorietenDAO.getFavorietById(id);
 		return favoriet;
 	}
-        @RequestMapping(value ="/Post",method = RequestMethod.POST)
+        @RequestMapping(value ="/post",method = RequestMethod.POST)
 	public void PostFavoriet(@RequestBody Favoriet newFavoriet) {
 		// Defaults aanroepen met
 		// http://localhost:8080/test/Postactiviteiten

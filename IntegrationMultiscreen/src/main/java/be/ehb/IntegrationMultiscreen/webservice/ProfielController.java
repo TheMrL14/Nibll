@@ -19,14 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Lennert
  */
 @RestController
-@RequestMapping("/Favoriet")
+@RequestMapping("/profiel")
 public class ProfielController {
-     @RequestMapping("/getAllProfiel")
+     @RequestMapping("/getAll")
     public ArrayList<Profiel> getAllProfiel(){
        ArrayList<Profiel> alleProfiel = ProfielDAO.getProfielen();
        return alleProfiel;
     }
-    @RequestMapping("/getProfielById")
+    @RequestMapping("/getById")
 	public Profiel getProfielById(@RequestParam(value = "id", defaultValue = "0") int id) {
 		// Defaults aanroepen met
 		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
@@ -35,7 +35,7 @@ public class ProfielController {
                                     Profiel profiel = ProfielDAO.getProfielById(id);
 		return profiel;
         }     
-        @RequestMapping(value ="/PostProfiel",method = RequestMethod.POST)
+        @RequestMapping(value ="/post",method = RequestMethod.POST)
 	public void PostProfiel(@RequestBody Profiel newProfiel) {
 		// Defaults aanroepen met
 		// http://localhost:8080/test/Postactiviteiten

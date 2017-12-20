@@ -1,87 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.bojan.nibllbojanactivities.home">
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <GridLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="0.5dp"
-            android:columnCount="2"
-            android:paddingTop="10dp"
-            android:rowCount="4"
-            tools:layout_editor_absoluteX="1dp">
+            android:background="@color/colorAccent"
+            android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/imageButton8"
-                android:layout_width="175dp"
-                android:layout_height="125dp"
-                android:background="@null"
-                android:scaleType="fitXY"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"></LinearLayout>
 
-                app:srcCompat="@drawable/aircooff" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"></LinearLayout>
+        </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/imageButton9"
-                android:layout_width="175dp"
-                android:layout_height="125dp"
-                android:background="@null"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/lightoff" />
-
-            <ImageButton
-                android:id="@+id/imageButton10"
-                android:layout_width="175dp"
-                android:layout_height="125dp"
-                android:background="@null"
-                android:scaleType="fitXY"
-
-                app:srcCompat="@drawable/blindson" />
-
-            <ImageButton
-                android:id="@+id/imageButton11"
-                android:layout_width="175dp"
-                android:layout_height="125dp"
-                android:background="@null"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/thelightson" />
-
-            <ImageButton
-                android:id="@+id/imageButton12"
-                android:layout_width="175dp"
-                android:layout_height="125dp"
-                android:background="@null"
-                android:scaleType="fitXY"
-
-                app:srcCompat="@drawable/outleton" />
-
-            <ImageButton
-                android:id="@+id/imageButton13"
-                android:layout_width="175dp"
-                android:layout_height="125dp"
-                android:background="@null"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/televisionoff" />
-
-            <ImageButton
-                android:id="@+id/imageButton14"
-                android:layout_width="175dp"
-                android:layout_height="125dp"
-                android:background="@null"
-                android:scaleType="fitXY"
-
-                app:srcCompat="@drawable/teslaon" />
-
-        </GridLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"></LinearLayout>
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:text="Button" />
+
+    </LinearLayout> -->
+
+</LinearLayout>

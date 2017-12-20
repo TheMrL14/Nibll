@@ -71,10 +71,10 @@ public class KamerEnSensorDAO {
 		return aantalAangepasteRijen;
 	}
 
-	public static int verwijderKamerEnSensor(int activiteitId) {
+	public static int verwijderKamerEnSensor(int idNieuweKamerEnSensor) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.KamerEnSensorenEnKamer WHERE idKamerEnSensor = ?", new Object[] { activiteitId });
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.KamerEnSensorenEnKamer WHERE idKamerEnSensor = ?", new Object[] { idNieuweKamerEnSensor });
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze

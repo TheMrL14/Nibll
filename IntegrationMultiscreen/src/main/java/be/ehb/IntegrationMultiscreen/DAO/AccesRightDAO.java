@@ -76,12 +76,13 @@ public class AccesRightDAO {
 			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.AccesRight WHERE accesRightId = ?", new Object[] { activiteitId });
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+                        
 			// Foutafhandeling naar keuze
 		}
 		return aantalAangepasteRijen;
 	}
 
 	private static AccesRight converteerHuidigeRijNaarObject(ResultSet mijnResultset) throws SQLException {
-		return new AccesRight(mijnResultset.getInt("sensorId"), mijnResultset.getInt("deviceId"), mijnResultset.getInt("profielId"));
+		return new AccesRight(mijnResultset.getInt("accesRightId"), mijnResultset.getInt("profielId"), mijnResultset.getInt("deviceId"));
 	}
 }

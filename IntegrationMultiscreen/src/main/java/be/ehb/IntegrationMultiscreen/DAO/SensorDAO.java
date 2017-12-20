@@ -70,10 +70,10 @@ public class SensorDAO {
 		return aantalAangepasteRijen;
 	}
 
-	public static int verwijderSensor(int activiteitId) {
+	public static int verwijderSensor(int sensorId) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.Sensor WHERE sensorId = ?", new Object[] { activiteitId });
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.Sensor WHERE sensorId = ?", new Object[] { sensorId});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze

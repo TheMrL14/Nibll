@@ -5,7 +5,7 @@
  */
 package be.ehb.IntegrationMultiscreen.DAO;
 
-import be.ehb.IntegrationMultiscreen.viewModel.ActiviteitenEnKamer;
+import be.ehb.IntegrationMultiscreen.viewModel.ActiviteitenDeviceEnOutput;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,14 +15,14 @@ import java.util.ArrayList;
  * @author Lennert
  */
 public class ActiviteitenDeviceEnOutputDAO {
-    public static ArrayList<ActiviteitenEnKamer> getActiviteitenEnKamer() {
-		ArrayList<ActiviteitenEnKamer> resultaat = new ArrayList<ActiviteitenEnKamer>();
+    public static ArrayList<ActiviteitenDeviceEnOutput> getActiviteitenDeviceEnOutput() {
+		ArrayList<ActiviteitenDeviceEnOutput> resultaat = new ArrayList<ActiviteitenDeviceEnOutput>();
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.ActiviteitenEnKamerenEnKamer");
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.ActiviteitenDeviceEnOutput");
 			if (mijnResultset != null) {
 				while (mijnResultset.next()) {
-					ActiviteitenEnKamer huidigeActiviteitenEnKamer = converteerHuidigeRijNaarObject(mijnResultset);
-					resultaat.add(huidigeActiviteitenEnKamer);
+					ActiviteitenDeviceEnOutput huidigeActiviteitenDeviceEnOutput = converteerHuidigeRijNaarObject(mijnResultset);
+					resultaat.add(huidigeActiviteitenDeviceEnOutput);
 				}
 			}
 		} catch (SQLException ex) {
@@ -33,10 +33,10 @@ public class ActiviteitenDeviceEnOutputDAO {
 		return resultaat;
 	}
 
-	public static ActiviteitenEnKamer getActiviteitenEnKamerById(int id) {
-		ActiviteitenEnKamer resultaat = null;
+	public static ActiviteitenDeviceEnOutput getActiviteitenDeviceEnOutputById(int id) {
+		ActiviteitenDeviceEnOutput resultaat = null;
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.ActiviteitenEnKamerenEnKamer where activiteitenEnKamerId = ?", new Object[] { id });
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.ActiviteitenDeviceEnOutputenEnKamer where idActiviteitenDeviceEnOutput = ?", new Object[] { id });
 			if (mijnResultset != null) {
 				mijnResultset.first();
 				resultaat = converteerHuidigeRijNaarObject(mijnResultset);
@@ -49,10 +49,10 @@ public class ActiviteitenDeviceEnOutputDAO {
 		return resultaat;
 	}
 
-	public static int voegActiviteitenEnKamerToe(ActiviteitenEnKamer nieuweActiviteitenEnKamer) {
+	public static int voegActiviteitenDeviceEnOutputToe(ActiviteitenDeviceEnOutput nieuweActiviteitenDeviceEnOutput) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.ActiviteitenEnKamerenEnKamer (kamerId, activiteitId,) VALUES (?,?)", new Object[] { nieuweActiviteitenEnKamer.getKamerId(),  nieuweActiviteitenEnKamer.getActiviteitenId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.ActiviteitenDeviceEnOutputen (activiteitId,deviceId,outputWaarde) VALUES (?,?,?)", new Object[] { nieuweActiviteitenDeviceEnOutput.getActiviteitId(),  nieuweActiviteitenDeviceEnOutput.getDeviceId(),nieuweActiviteitenDeviceEnOutput.getOutputWaarde()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -60,10 +60,10 @@ public class ActiviteitenDeviceEnOutputDAO {
 		return aantalAangepasteRijen;
 	}
 
-	public static int updateActiviteitenEnKamer(ActiviteitenEnKamer nieuweActiviteitenEnKamer) {
+	public static int updateActiviteitenDeviceEnOutput(ActiviteitenDeviceEnOutput nieuweActiviteitenDeviceEnOutput) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.ActiviteitenEnKamerenEnKamer SET kamerId = ?,  activiteitId = ? WHERE activiteitenEnKamerId = ?", new Object[] {  nieuweActiviteitenEnKamer.getKamerId(),  nieuweActiviteitenEnKamer.getActiviteitenId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.ActiviteitenDeviceEnOutputenEnKamer SET  activiteitId = ?, deviceId = ?, outputWaarde = ?  WHERE activiteitenEnKamerId = ?", new Object[] {  nieuweActiviteitenDeviceEnOutput.getActiviteitId(),  nieuweActiviteitenDeviceEnOutput.getDeviceId(), nieuweActiviteitenDeviceEnOutput.getOutputWaarde()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -71,10 +71,10 @@ public class ActiviteitenDeviceEnOutputDAO {
 		return aantalAangepasteRijen;
 	}
 
-	public static int verwijderActiviteitenEnKamer(int activiteitId) {
+	public static int verwijderActiviteitenDeviceEnOutput(int idActiviteitDeviceEnOutput) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.ActiviteitenEnKamerenEnKamer WHERE activiteitenEnKamerId = ?", new Object[] { activiteitId });
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.ActiviteitenDeviceEnOutputenEnKamer WHERE idActiviteitDeviceEnOutput = ?", new Object[] { idActiviteitDeviceEnOutput });
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -82,7 +82,7 @@ public class ActiviteitenDeviceEnOutputDAO {
 		return aantalAangepasteRijen;
 	}
 
-	private static ActiviteitenEnKamer converteerHuidigeRijNaarObject(ResultSet mijnResultset) throws SQLException {
-		return new ActiviteitenEnKamer(mijnResultset.getInt("activiteitenEnKamerId"), mijnResultset.getInt("kamerId"), mijnResultset.getInt("activiteitId"));
+	private static ActiviteitenDeviceEnOutput converteerHuidigeRijNaarObject(ResultSet mijnResultset) throws SQLException {
+		return new ActiviteitenDeviceEnOutput(mijnResultset.getInt("idActiviteitenDeviceEnOutput"), mijnResultset.getInt("activiteitId"), mijnResultset.getInt("deviceId"), mijnResultset.getInt("outputWaarde"));
 	}
 }

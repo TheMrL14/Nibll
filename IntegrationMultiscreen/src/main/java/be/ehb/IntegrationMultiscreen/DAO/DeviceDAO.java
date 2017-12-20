@@ -51,7 +51,7 @@ public class DeviceDAO {
 	public static int voegDeviceToe(Device nieuweDevice) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Device (inputWaarde, outputWaarde, status, naamDevice, sensorId) VALUES (?,?,?,?)", new Object[] { nieuweDevice.getInputWaarde(), nieuweDevice.getOutputWaarde(), nieuweDevice.getStatus(), nieuweDevice.getNaamDevice()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Device (inputWaarde, outputWaarde, status, naamDevice) VALUES (?,?,?,?)", new Object[] { nieuweDevice.getInputWaarde(), nieuweDevice.getOutputWaarde(), nieuweDevice.getStatus(), nieuweDevice.getNaamDevice()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze

@@ -4,6 +4,10 @@
     font-family: "helvetica";
 }
 
+input {
+  cursor: pointer;
+}
+
 li {
     list-style: none;
 }
@@ -98,6 +102,9 @@ text-align: center;
 
 .navText > a:hover{
     text-decoration: underline;
+}
+.homeTile, .activities-container, .rooms-container {
+  cursor: pointer;
 }
 
 .clearfix::after {

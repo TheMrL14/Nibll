@@ -45,4 +45,67 @@ public class NibllController {
                 SensorDAO.voegSensorToe(newSensor);    
 }         
         
+<<<<<<< Updated upstream
 }
+=======
+        @RequestMapping("/getSensorById")
+	public Sensor getSensorById(@RequestParam(value = "id", defaultValue = "0") int id) {
+		// Defaults aanroepen met
+		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
+		// Custom aanroepen met
+		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn?naam=Maarten
+                                    Sensor sensor = SensorDAO.getSensorById(id);
+		return sensor;
+	}
+        @RequestMapping("/getDeviceById")
+	public Device getDeviceById(@RequestParam(value = "id", defaultValue = "0") int id) {
+		// Defaults aanroepen met
+		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
+		// Custom aanroepen met
+		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn?naam=Maarten
+                                    Device device = DeviceDAO.getDeviceById(id);
+		return device;
+	}
+        @RequestMapping("/getFavorietentById")
+	public Favoriet getFavorietById(@RequestParam(value = "id", defaultValue = "0") int id) {
+		// Defaults aanroepen met
+		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
+		// Custom aanroepen met
+		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn?naam=Maarten
+                                    Favoriet favoriet = FavorietenDAO.getFavorietById(id);
+		return favoriet;
+	}
+        @RequestMapping("/getKamerById")
+	public Kamer getKamerById(@RequestParam(value = "id", defaultValue = "0") int id) {
+                    System.out.println(id);
+// Defaults aanroepen met
+		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
+		// Custom aanroepen met
+		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn?naam=Maarten
+                                    Kamer kamer = KamerDAO.getKamerById(id);
+		return kamer;
+	}
+        @RequestMapping("/getProfielById")
+	public Profiel getProfielById(@RequestParam(value = "id", defaultValue = "0") int id) {
+		// Defaults aanroepen met
+		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
+		// Custom aanroepen met
+		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn?naam=Maarten
+                                    Profiel profiel = ProfielDAO.getProfielById(id);
+		return profiel;
+        }   
+    @RequestMapping("/test")
+	public String test() {
+		// Defaults aanroepen met
+		// http://localhost:8080/test
+		// Custom aanroepen met
+                System.out.println("hallo");
+                                    String test = "hallo";
+		return test;
+        }   
+
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------/getById
+//--------------------------------------------------------------------------------------------------------------------
+}
+>>>>>>> Stashed changes

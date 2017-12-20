@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+var htmlpopup = "<div class='popover-bg'><div class='popover'>";
+htmlpopup += "<div class='textdiv'>";
+htmlpopup += "<form id='textForm'><ul><li><label for='persoonId'>PersoonId<input type='text' id='persoonId' disabled></label></li>";
+htmlpopup += "<li><label for='voornaam'>Voornaam<input type='text' id='voornaam'></label></li>";
+htmlpopup += "<li><label for='achternaam'>Achternaam<input type='text' id='achternaam'></label></li>";
+htmlpopup += "<li><label for='adres'>Adres<input type='text' id='adres'></label></li>";
+htmlpopup += "<li><label for='gemeente'>Gemeente<input type='text' id='gemeente'></label></li>";
+htmlpopup += "<li><label for='geboortedatum'>Geboortedatum<input type='text' id='geboortedatum'></label></li>";
+htmlpopup += "<li><label for='fotoId'>FotoId<input type='text' id='fotoId'></label></li>";
+htmlpopup += "<li><p>Inschrijven voor nieuwsbrief</p><label for='nieuwsbriefJa'>Ja<input type='radio' id='nieuwsbriefJa' name='nieuwsbrief'></label><label for='nieuwsbriefNeen'>Neen<input type='radio' id='nieuwsbriefNeen' name='nieuwsbrief'></label></li></ul><div id='popover-buttons'><input id='save-button' value='Opslaan' type='submit'><input id='cancel-button' value='Annuleren' type='button'><input id='remove-button' value='Verwijderen' type='button'></form></div>";
+htmlpopup += '<li class="ui-state-default ui-corner-all" title=".ui-icon-closethick" id="close-button"><span class="ui-icon ui-icon-closethick"></span></li>';
+htmlpopup += "</div></div>"
+console.log(htmlpopup);
+$("body").html(htmlpopup);
+</script>
+</html>

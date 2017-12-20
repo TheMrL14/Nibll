@@ -36,7 +36,7 @@ public class ActiviteitenEnKamerDAO {
 	public static ActiviteitenEnKamer getActiviteitenEnKamerById(int id) {
 		ActiviteitenEnKamer resultaat = null;
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.ActiviteitenEnKamerenEnKamer where activiteitenEnKamerId = ?", new Object[] { id });
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.ActiviteitenEnKamerenEnKamer where idActiviteitenEnKamer = ?", new Object[] { id });
 			if (mijnResultset != null) {
 				mijnResultset.first();
 				resultaat = converteerHuidigeRijNaarObject(mijnResultset);
@@ -63,7 +63,7 @@ public class ActiviteitenEnKamerDAO {
 	public static int updateActiviteitenEnKamer(ActiviteitenEnKamer nieuweActiviteitenEnKamer) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.ActiviteitenEnKamerenEnKamer SET kamerId = ?,  activiteitId = ? WHERE activiteitenEnKamerId = ?", new Object[] {  nieuweActiviteitenEnKamer.getKamerId(),  nieuweActiviteitenEnKamer.getActiviteitenId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.ActiviteitenEnKamerenEnKamer SET kamerId = ?,  activiteitId = ? WHERE idActiviteitenEnKamer = ?", new Object[] {  nieuweActiviteitenEnKamer.getKamerId(),  nieuweActiviteitenEnKamer.getActiviteitenId()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -74,7 +74,7 @@ public class ActiviteitenEnKamerDAO {
 	public static int verwijderActiviteitenEnKamer(int activiteitId) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.ActiviteitenEnKamerenEnKamer WHERE activiteitenEnKamerId = ?", new Object[] { activiteitId });
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("DELETE FROM IP1718004.ActiviteitenEnKamerenEnKamer WHERE idActiviteitenEnKamer = ?", new Object[] { activiteitId });
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -83,6 +83,6 @@ public class ActiviteitenEnKamerDAO {
 	}
 
 	private static ActiviteitenEnKamer converteerHuidigeRijNaarObject(ResultSet mijnResultset) throws SQLException {
-		return new ActiviteitenEnKamer(mijnResultset.getInt("activiteitenEnKamerId"), mijnResultset.getInt("kamerId"), mijnResultset.getInt("activiteitId"));
+		return new ActiviteitenEnKamer(mijnResultset.getInt("idActiviteitenEnKamer"), mijnResultset.getInt("kamerId"), mijnResultset.getInt("activiteitId"));
 	}
 }

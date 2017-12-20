@@ -10,18 +10,18 @@ package be.ehb.IntegrationMultiscreen.viewModel;
  * @author Lennert
  */
 public class ActiviteitenEnKamer {
-    private int activiteitenEnKamerId;
+    private int idActiviteitenEnKamer;
     private int kamerId;
     private int activiteitenId;
     
     //*******************************************************************GET/SET
 
     public int getActiviteitenEnKamerId() {
-        return activiteitenEnKamerId;
+        return idActiviteitenEnKamer;
     }
 
     public void setActiviteitenEnKamerId(int activiteitenEnKamerId) {
-        this.activiteitenEnKamerId = activiteitenEnKamerId;
+        this.idActiviteitenEnKamer = activiteitenEnKamerId;
     }
 
     public int getKamerId() {
@@ -41,8 +41,8 @@ public class ActiviteitenEnKamer {
     }
     //*******************************************************constructor
 
-    public ActiviteitenEnKamer(int activiteitenEnKamerId, int kamerId, int activiteitenId) {
-        this.activiteitenEnKamerId = activiteitenEnKamerId;
+    public ActiviteitenEnKamer(int idActiviteitenEnKamer, int kamerId, int activiteitenId) {
+        this.idActiviteitenEnKamer = idActiviteitenEnKamer;
         this.kamerId = kamerId;
         this.activiteitenId = activiteitenId;
     }

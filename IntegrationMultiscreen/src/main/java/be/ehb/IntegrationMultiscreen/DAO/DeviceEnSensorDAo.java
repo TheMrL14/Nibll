@@ -14,7 +14,7 @@ import java.util.ArrayList;
  *
  * @author Lennert
  */
-public class DeviceEnSensorDAo {
+public class DeviceEnSensorDAO {
     public static ArrayList<DeviceEnSensor> getDeviceEnSensor() {
 		ArrayList<DeviceEnSensor> resultaat = new ArrayList<DeviceEnSensor>();
 		try {

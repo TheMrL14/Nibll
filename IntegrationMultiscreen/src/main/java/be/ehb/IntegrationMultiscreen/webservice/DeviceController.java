@@ -26,7 +26,7 @@ public class DeviceController {
        ArrayList<Device> alleDevice = DeviceDAO.getDevice();
        return alleDevice;
     }
-    @RequestMapping("/getId")
+    @RequestMapping("/getById")
 	public Device getDeviceById(@RequestParam(value = "id", defaultValue = "0") int id) {
 		// Defaults aanroepen met
 		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn

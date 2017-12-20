@@ -26,7 +26,7 @@ public class FavorietenController {
        ArrayList<Favoriet> alleFavorieten = FavorietenDAO.getFavorieten();
        return alleFavorieten;
     }
-    @RequestMapping("/getId")
+    @RequestMapping("/getById")
 	public Favoriet getFavorietById(@RequestParam(value = "id", defaultValue = "0") int id) {
 		// Defaults aanroepen met
 		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn

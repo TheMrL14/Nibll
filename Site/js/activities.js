@@ -3,7 +3,7 @@ var activities;
 window.addEventListener("load", laadActivities);
 
 function laadActivities() {
-  var activities = $.getJSON("http://localhost:8080/test/getAllActiviteit", function(data) {
+  var activities = $.getJSON("http://localhost:8080/activiteit/getAll", function(data) {
       var htmlString = "";
     data.forEach(function(activity){
       htmlString += '<li class="roomsTile" activityId="' + activity.activiteitId;

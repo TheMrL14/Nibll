@@ -1,0 +1,8 @@
+com\mycompany\wc7_1\webservice\WebConfig.class
+com\mycompany\wc7_1\webservice\Webservice.class
+com\mycompany\wc7_1\dao\MaanDao.class
+com\mycompany\wc7_1\dao\PlanetenDao.class
+com\mycompany\wc7_1\dao\Database.class
+com\mycompany\wc7_1\model\Planeet.class
+com\mycompany\wc7_1\webservice\PlaneetController.class
+com\mycompany\wc7_1\model\Maan.class

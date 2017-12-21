@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Nibll</string>
+    <string name="title_activity_device_test">deviceTest</string>
 </resources>

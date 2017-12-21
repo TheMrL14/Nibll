@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+var htmlpopup = "<div class='popover-bg'><div class='popover'>";
+htmlpopup += "<div class='textdiv'>";
+htmlpopup += "<form id='textForm'>";
+htmlpopup += "<div><label for='kamerNaam'>KamerNaam<input type='text' id='kamernaam'></label></div>";
+htmlpopup += "<div id='popover-buttons'><input id='save-button' value='Save' type='submit'></div></form>";
+htmlpopup += "</div></div>"
+console.log(htmlpopup);
+$("body").html(htmlpopup);
+</script>
+</html>

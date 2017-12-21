@@ -51,7 +51,7 @@ public class ActiviteitenDAO {
 	public static int voegActiviteitToe(Activiteit nieuweActiviteit) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Activiteiten (naamActiviteit, deviceId, outputActie,profielId,kamerId) VALUES (?,?,?,?,?)", new Object[] { nieuweActiviteit.getNaamActiviteit(), nieuweActiviteit.getDeviceId(), nieuweActiviteit.getOutputActie(), nieuweActiviteit.getProfielId(),nieuweActiviteit.getKamerId(), nieuweActiviteit.getActiviteitId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Activiteiten (naamActiviteit, outputActie,) VALUES (?,?)", new Object[] { nieuweActiviteit.getNaamActiviteit(), nieuweActiviteit.getOutputActie()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -62,7 +62,7 @@ public class ActiviteitenDAO {
 	public static int updateActiviteit(Activiteit nieuweActiviteit) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Activiteiten SET naamActiviteit = ?, deviceId = ?, outputActie = ?, profielId = ?, kamerId = ? WHERE activiteitId = ?", new Object[] {  nieuweActiviteit.getNaamActiviteit(), nieuweActiviteit.getDeviceId(), nieuweActiviteit.getOutputActie(), nieuweActiviteit.getProfielId(),nieuweActiviteit.getKamerId(), nieuweActiviteit.getActiviteitId()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Activiteiten SET naamActiviteit = ?,  outputActie = ? WHERE activiteitId = ?", new Object[] {  nieuweActiviteit.getNaamActiviteit(),  nieuweActiviteit.getOutputActie(), nieuweActiviteit.getActiviteitId()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -82,6 +82,6 @@ public class ActiviteitenDAO {
 	}
 
 	private static Activiteit converteerHuidigeRijNaarObject(ResultSet mijnResultset) throws SQLException {
-		return new Activiteit(mijnResultset.getInt("activiteitId"), mijnResultset.getString("naamActiviteit"), mijnResultset.getInt("deviceId"), mijnResultset.getString("outputActie"), mijnResultset.getInt("profielId"), mijnResultset.getInt("kamerId"));
+		return new Activiteit(mijnResultset.getInt("activiteitId"), mijnResultset.getString("naamActiviteit"), mijnResultset.getString("outputActie"));
 	}
 }

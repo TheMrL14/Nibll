@@ -12,10 +12,8 @@ package be.ehb.IntegrationMultiscreen.model;
 public class Activiteit {
     private int activiteitId;
     private String naamActiviteit;
-    private int deviceId;
     private String outputActie;
-    private int profielId;
-    private int kamerId;
+   
     
     //-----------------------------------------GETTERS/SETTERS
 
@@ -35,14 +33,7 @@ public class Activiteit {
         this.naamActiviteit = naamActiviteit;
     }
 
-    public int getDeviceId() {
-        return deviceId;
-    }
-
-    public void setDeviceId(int deviceId) {
-        this.deviceId = deviceId;
-    }
-
+ 
     public String getOutputActie() {
         return outputActie;
     }
@@ -51,31 +42,19 @@ public class Activiteit {
         this.outputActie = outputActie;
     }
 
-    public int getProfielId() {
-        return profielId;
-    }
-
-    public void setProfielId(int profielId) {
-        this.profielId = profielId;
-    }
-
-    public int getKamerId() {
-        return kamerId;
-    }
-
-    public void setKamerId(int kamerId) {
-        this.kamerId = kamerId;
-    }
+ 
     //----------------------------------------------------Constructors
 
-    public Activiteit(int activiteitId, String naamActiviteit, int deviceId, String outputActie, int profielId, int kamerId) {
+    public Activiteit(int activiteitId, String naamActiviteit,  String outputActie) {
         this.activiteitId = activiteitId;
         this.naamActiviteit = naamActiviteit;
-        this.deviceId = deviceId;
+
         this.outputActie = outputActie;
-        this.profielId = profielId;
-        this.kamerId = kamerId;
+  
     }
     
+    public Activiteit(){
+        
+    }
     
 }

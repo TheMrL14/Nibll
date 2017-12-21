@@ -53,4 +53,7 @@ public class Favoriet {
         this.deviceId = deviceId;
         this.profielId = profielId;
     }
+    public Favoriet(){
+        
+    }
 }

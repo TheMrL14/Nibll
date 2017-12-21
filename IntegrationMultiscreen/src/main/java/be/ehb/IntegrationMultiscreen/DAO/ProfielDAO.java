@@ -52,7 +52,7 @@ public class ProfielDAO {
 	public static int voegProfielToe(Profiel nieuweProfiel) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Profiel (profielId, naamProfiel) VALUES (?,?)", new Object[] { nieuweProfiel.getProfielId(),nieuweProfiel.getNaamProfiel()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Profiel ( naamProfiel) VALUES (?)", new Object[] { nieuweProfiel.getNaamProfiel()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -63,7 +63,7 @@ public class ProfielDAO {
 	public static int updateProfiel(Profiel nieuweProfiel) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Profiel SET profielId = ?,naamProfiel = ? WHERE profielId = ?", new Object[] { nieuweProfiel.getProfielId(), nieuweProfiel.getNaamProfiel()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Profiel SET naamProfiel = ? WHERE profielId = ?", new Object[] { nieuweProfiel.getProfielId(), nieuweProfiel.getNaamProfiel()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze

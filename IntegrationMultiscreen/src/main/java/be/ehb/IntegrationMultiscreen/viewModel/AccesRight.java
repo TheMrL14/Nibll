@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.ehb.IntegrationMultiscreen.model;
+package be.ehb.IntegrationMultiscreen.viewModel;
 
 /**
  *
@@ -43,6 +43,8 @@ public class AccesRight {
         this.deviceId = deviceId;
         this.profielId = profielId;
     }
-    
+    public AccesRight(){
+        
+    }
     
 }

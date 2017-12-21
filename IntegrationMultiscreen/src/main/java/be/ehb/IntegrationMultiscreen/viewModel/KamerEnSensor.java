@@ -3,30 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.ehb.IntegrationMultiscreen.model;
+package be.ehb.IntegrationMultiscreen.viewModel;
 
 /**
  *
- * @author Nibbl
+ * @author lione
  */
-public class Kamer {
+public class KamerEnSensor {
+    private int idKamerEnSensor;
     private int kamerId;
     private int sensorId;
-    private int deviceId;
-    private String naamKamer;
 
-    public int getDeviceId() {
-        return deviceId;
+    public int getIdKamerEnSensor() {
+        return idKamerEnSensor;
     }
 
-    public void setDeviceId(int deviceId) {
-        this.deviceId = deviceId;
+    public void setIdKamerEnSensor(int idKamerEnSensor) {
+        this.idKamerEnSensor = idKamerEnSensor;
     }
 
-    
-    
-    
-    
     public int getKamerId() {
         return kamerId;
     }
@@ -43,20 +38,9 @@ public class Kamer {
         this.sensorId = sensorId;
     }
 
-    public String getNaamKamer() {
-        return naamKamer;
-    }
-
-    public void setNaamKamer(String naamKamer) {
-        this.naamKamer = naamKamer;
-    }
-
-    public Kamer(int kamerId, int sensorId,int deviceId, String naamKamer) {
+    public KamerEnSensor(int idKamerEnSensor, int kamerId, int sensorId) {
+        this.idKamerEnSensor = idKamerEnSensor;
         this.kamerId = kamerId;
         this.sensorId = sensorId;
-        this.naamKamer = naamKamer;
-    }
-    public Kamer(){
-        
     }
 }

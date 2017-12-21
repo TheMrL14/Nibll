@@ -15,7 +15,6 @@ public class Device {
     private double outputWaarde;
     private boolean status;
     private String naamDevice;
-    private int sensorId;
     
     //--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__SETTERS EN GETTERS
 
@@ -59,23 +58,18 @@ public class Device {
         this.naamDevice = naamDevice;
     }
 
-    public int getSensorId() {
-        return sensorId;
-    }
-
-    public void setSensorId(int sensorId) {
-        this.sensorId = sensorId;
-    }
+ 
   //--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__CONSTRUCTOR  
 
-    public Device(int deviceId, double inputWaarde, double outputWaarde, boolean status, String naamDevice, int sensorId) {
+    public Device(int deviceId, double inputWaarde, double outputWaarde, boolean status, String naamDevice) {
         this.deviceId = deviceId;
         this.inputWaarde = inputWaarde;
         this.outputWaarde = outputWaarde;
         this.status = status;
         this.naamDevice = naamDevice;
-        this.sensorId = sensorId;
     }
-    
+   public Device(){
+       
+   } 
     
 }

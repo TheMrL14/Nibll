@@ -14,7 +14,9 @@ package com.example.bojan.nibllbojanactivities.database;
         import android.util.Log;
 
         import com.example.bojan.nibllbojanactivities.database.dao.DeviceDao;
+        import com.example.bojan.nibllbojanactivities.model.Device;
 
+@Database(entities = {Device.class}, version = 1)
 public abstract class ApplicatieDatabase extends RoomDatabase {
     private static ApplicatieDatabase mijnSingleton;
 

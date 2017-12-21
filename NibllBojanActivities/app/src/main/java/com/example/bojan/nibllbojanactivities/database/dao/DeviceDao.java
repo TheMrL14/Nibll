@@ -23,7 +23,7 @@ public interface DeviceDao {
     @Query("SELECT * FROM device")
     public List<Device> getAlleDevice();
 
-    @Query("SELECT * FROM device WHERE cursusId=:id")
+    @Query("SELECT * FROM device WHERE deviceId=:id")
     public Device getDeviceById(int id);
 
     @Insert

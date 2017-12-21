@@ -45,9 +45,9 @@ public class home extends AppCompatActivity {
         });
         mijnThread.start();
     }
-    public void vulLijstOp(List<Device> alleCursussen){
-        DeviceArrayAdapter mijnAdapter = new DeviceArrayAdapter(this, alleCursussen);
-        GridView mijnAdapterView = findViewById(R.id.deviceGridview);
+    public void vulLijstOp(List<Device> alleDevices){
+        DeviceArrayAdapter mijnAdapter = new DeviceArrayAdapter(this, alleDevices);
+        GridView mijnAdapterView = (GridView) findViewById(R.id.deviceGridview);
         mijnAdapterView.setAdapter(mijnAdapter);
     }
     }

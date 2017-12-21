@@ -1,10 +1,14 @@
 package com.example.bojan.nibllbojanactivities.model;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
 /**
  * Created by bojan on 20-Dec-17.
  */
-
+@Entity
 public class Device {
+    @PrimaryKey(autoGenerate = true)
     private int deviceId;
     private int iconId;
     private int extraId;

@@ -24,7 +24,7 @@ public class KamerEnSensorController {
     }
     
     @RequestMapping("/getById")
-	public KamerEnSensor getKamerEnSensorById(@RequestParam(value = "id", defaultValue = "0") int id) {
+	public KamerEnSensor getKamerEnSensorById(@RequestParam(value = "id", defaultValue = "1") int id) {
                 KamerEnSensor newKamerEnSensor = KamerEnSensorDAO.getKamerEnSensorById(id);
 		return newKamerEnSensor;
 	}

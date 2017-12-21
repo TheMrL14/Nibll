@@ -30,7 +30,7 @@ public class AccesRightController {
     }
     
     @RequestMapping("/getById")
-	public AccesRight getActiviteitById(@RequestParam(value = "id", defaultValue = "0") int id) {
+	public AccesRight getActiviteitById(@RequestParam(value = "id", defaultValue = "1") int id) {
                 AccesRight activiteit = AccesRightDAO.getAccesRightById(id);
 		return activiteit;
 	}

@@ -27,7 +27,7 @@ public class SensorController {
        return alleActiviteiten;
     }
      @RequestMapping("/getById")
-	public Sensor getSensorById(@RequestParam(value = "id", defaultValue = "0") int id) {
+	public Sensor getSensorById(@RequestParam(value = "id", defaultValue = "1") int id) {
 		// Defaults aanroepen met
 		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
 		// Custom aanroepen met

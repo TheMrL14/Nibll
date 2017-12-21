@@ -30,7 +30,7 @@ public class ActiviteitenController {
     }
     
     @RequestMapping("/getById")
-	public Activiteit getActiviteitById(@RequestParam(value = "id", defaultValue = "0") int id) {
+	public Activiteit getActiviteitById(@RequestParam(value = "id", defaultValue = "1") int id) {
                 Activiteit activiteit = ActiviteitenDAO.getActiviteitById(id);
 		return activiteit;
 	}

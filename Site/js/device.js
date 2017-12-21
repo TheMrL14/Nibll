@@ -23,13 +23,25 @@ function setDevice () {
   console.log(device)
   var tempDevice = device;
   if($("#deviceToggleButton").attr("value") == "Aan") {
-    tempDevice.status = false;
+    $.getJSON("http://nibll.local:5001/send?protocol=kaku_switch&id=5218304&unit=1&repeat=5&off=1")
+    .done(function (data) {
+      if(data.message == "success"){
+        tempDevice.status = false;
+        postToDatabase(tempDevice);
+      }
+    });
   }else {
-    tempDevice.status = true;
+    $.getJSON("http://nibll.local:5001/send?protocol=kaku_switch&id=5218304&unit=1&repeat=5&on=1")
+    .done(function (data) {
+      if(data.message == "success"){
+        tempDevice.status = true;
+        postToDatabase(tempDevice);
+      }
+    });
   }
   console.log(JSON.stringify(tempDevice))
-  $.post("http://localhost:8080/device/Post", tempDevice)
-  .fail(function(e){
-    console.log(e)
-  });
+}
+
+function postToDatabase(tempDevice){
+  $.post("http://localhost:8080/device/Post", tempDevice);
 }

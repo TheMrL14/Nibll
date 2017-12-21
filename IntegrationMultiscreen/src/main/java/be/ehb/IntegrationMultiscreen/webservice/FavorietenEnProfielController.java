@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Lennert
  */
 @RestController
-@RequestMapping("/favoriet")
+@RequestMapping("/favorietEnProfiel")
 public class FavorietenEnProfielController {
     @RequestMapping("/getAll")
     public ArrayList<FavorietenEnProfiel> getAllFavorietenEnProfielenEnProfiel(){

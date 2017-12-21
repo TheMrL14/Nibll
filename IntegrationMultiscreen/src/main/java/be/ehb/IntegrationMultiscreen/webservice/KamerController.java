@@ -27,7 +27,7 @@ public class KamerController {
        return alleKamer;
     }
     @RequestMapping("/getById")
-	public Kamer getKamerById(@RequestParam(value = "id", defaultValue = "0") int id) {
+	public Kamer getKamerById(@RequestParam(value = "id", defaultValue = "1") int id) {
 		// Defaults aanroepen met
 		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
 		// Custom aanroepen met

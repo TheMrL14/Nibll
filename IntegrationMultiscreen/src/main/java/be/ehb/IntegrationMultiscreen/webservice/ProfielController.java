@@ -27,7 +27,7 @@ public class ProfielController {
        return alleProfiel;
     }
     @RequestMapping("/getById")
-	public Profiel getProfielById(@RequestParam(value = "id", defaultValue = "0") int id) {
+	public Profiel getProfielById(@RequestParam(value = "id", defaultValue = "1") int id) {
 		// Defaults aanroepen met
 		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
 		// Custom aanroepen met

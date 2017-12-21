@@ -27,7 +27,7 @@ public class FavorietenController {
        return alleFavorieten;
     }
     @RequestMapping("/getById")
-	public Favoriet getFavorietById(@RequestParam(value = "id", defaultValue = "0") int id) {
+	public Favoriet getFavorietById(@RequestParam(value = "id", defaultValue = "1") int id) {
 		// Defaults aanroepen met
 		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
 		// Custom aanroepen met

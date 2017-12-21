@@ -24,7 +24,7 @@ public class KamerEnDeviceController {
     }
     
     @RequestMapping("/getById")
-	public KamerEnDevice getKamerEnDeviceById(@RequestParam(value = "id", defaultValue = "0") int id) {
+	public KamerEnDevice getKamerEnDeviceById(@RequestParam(value = "id", defaultValue = "1") int id) {
                 KamerEnDevice newKamerEnDevice = KamerEnDeviceDAO.getKamerEnDeviceById(id);
 		return newKamerEnDevice;
 	}

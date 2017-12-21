@@ -25,7 +25,7 @@ public class ActiviteitenEnKamerController {
     }
     
     @RequestMapping("/getById")
-	public ActiviteitenEnKamer getActiviteitEnKamer(@RequestParam(value = "id", defaultValue = "0") int id) {
+	public ActiviteitenEnKamer getActiviteitEnKamer(@RequestParam(value = "id", defaultValue = "1") int id) {
                 ActiviteitenEnKamer newActiviteitenEnKamer = ActiviteitenEnKamerDAO.getActiviteitenEnKamerById(id);
 		return newActiviteitenEnKamer;
 	}

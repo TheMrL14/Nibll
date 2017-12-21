@@ -25,7 +25,7 @@ public class ActiviteitenDeviceEnOutputController {
     }
     
     @RequestMapping("/getById")
-	public ActiviteitenDeviceEnOutput getActiviteitDeviceEnOutput(@RequestParam(value = "id", defaultValue = "0") int id) {
+	public ActiviteitenDeviceEnOutput getActiviteitDeviceEnOutput(@RequestParam(value = "id", defaultValue = "1") int id) {
                 ActiviteitenDeviceEnOutput newActiviteitenDeviceEnOutput = ActiviteitenDeviceEnOutputDAO.getActiviteitenDeviceEnOutputById(id);
 		return newActiviteitenDeviceEnOutput;
 	}

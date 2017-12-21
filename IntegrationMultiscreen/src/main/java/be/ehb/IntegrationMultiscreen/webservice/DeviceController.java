@@ -27,7 +27,7 @@ public class DeviceController {
        return alleDevice;
     }
     @RequestMapping("/getById")
-	public Device getDeviceById(@RequestParam(value = "id", defaultValue = "0") int id) {
+	public Device getDeviceById(@RequestParam(value = "id", defaultValue = "1") int id) {
 		// Defaults aanroepen met
 		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
 		// Custom aanroepen met

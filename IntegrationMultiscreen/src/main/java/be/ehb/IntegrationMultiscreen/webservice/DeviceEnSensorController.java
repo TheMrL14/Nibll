@@ -27,7 +27,7 @@ public class DeviceEnSensorController {
        return alleDeviceEnSensor;
     }
     @RequestMapping("/getId")
-	public DeviceEnSensor getDeviceEnSensorById(@RequestParam(value = "id", defaultValue = "0") int id) {
+	public DeviceEnSensor getDeviceEnSensorById(@RequestParam(value = "id", defaultValue = "1") int id) {
 		// Defaults aanroepen met
 		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
 		// Custom aanroepen met

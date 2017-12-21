@@ -4,6 +4,7 @@ package com.example.bojan.nibllbojanactivities.Adapter;
  * Created by bojan on 20-Dec-17.
  */
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -30,18 +31,22 @@ public class DeviceArrayAdapter extends ArrayAdapter<Device> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater mijnLayoutInflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        View row = convertView;
+
+
+        LayoutInflater mijnLayoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         //Alle XML elementen van de listviewitem_trein layout omzetten naar objecten van overeenkomstige View-klasses
-        GridView gridView = (GridView) mijnLayoutInflater.inflate(R.layout.tileitemlayout, parent, false);
-        ImageView deviceIcon = (ImageView)gridView.findViewById(R.id.deviceIcon);
-        ImageView deviceIcon2 = (ImageView)gridView.findViewById(R.id.deviceIcon2);
-        TextView deviceText = (TextView)gridView.findViewById(R.id.deviceText);
+  View gridViewItem = mijnLayoutInflater.inflate(R.layout.tileitemlayout, parent, false);
+        ImageView deviceIcon = (ImageView)gridViewItem.findViewById(R.id.deviceIcon);
+        ImageView deviceIcon2 = (ImageView)gridViewItem.findViewById(R.id.deviceIcon2);
+        TextView deviceText = (TextView)gridViewItem.findViewById(R.id.deviceText);
 
 
         Device weerTeGevenDevice = this.getItem(position);
         deviceText.setText(weerTeGevenDevice.getName());
         deviceIcon.setImageResource(weerTeGevenDevice.getIconId());
         deviceIcon2.setImageResource(weerTeGevenDevice.getExtraId());
-        return gridView;
+        return gridViewItem;
     }
 }

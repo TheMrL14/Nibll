@@ -33,6 +33,27 @@ public class home extends AppCompatActivity {
                     ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.airco_icon, R.drawable.airco_arrow, "Airco Bedroom"));
                     ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Bureau Lamp"));
                     ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "The Lights"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
+                    ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
                     alleDevices = ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().getAlleDevice();
                 }
                 for(Device huidigeDevice : alleDevices) {

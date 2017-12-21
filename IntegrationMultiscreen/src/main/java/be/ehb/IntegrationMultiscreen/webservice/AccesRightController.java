@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/activiteit")
+@RequestMapping("/accessright")
 public class AccesRightController {
     
   	@RequestMapping("/getAll")

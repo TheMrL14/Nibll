@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/deviceGridview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,9 +9,7 @@
     android:stretchMode="columnWidth"
     android:verticalSpacing="10dp">
 
-<<<<<<< HEAD
-</GridView>
-=======
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -173,5 +172,5 @@
 
     </LinearLayout> -->
 
-</LinearLayout>
->>>>>>> 58b507dc7c46013957ba4795dd61c2ae51fb19a9
+
+    </GridView>

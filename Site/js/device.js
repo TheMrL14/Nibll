@@ -1,10 +1,16 @@
 var device;
 
-$(function () {
-  window.setInterval(getDevice, 1000);
-  $("#deviceToggleButton").on("click", setDevice);
-});
+// $(function () {
+//   window.setInterval(getDevice, 1000);
+//   $("#deviceToggleButton").on("click", setDevice);
+// });
+function off() {
+  $.getJSON("http://nibll.local:5001/send?protocol=kaku_switch&id=5218304&unit=1&repeat=5&off=1");
+}
 
+function on() {
+  $.getJSON("http://nibll.local:5001/send?protocol=kaku_switch&id=5218304&unit=1&repeat=5&on=1");
+}
 function getDevice() {
 $.getJSON("http://localhost:8080/device/getById?id=1", function(data) {
   device = data;

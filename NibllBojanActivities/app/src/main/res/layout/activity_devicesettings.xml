@@ -13,21 +13,26 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
         android:text="Desk Lamp"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="30sp" />
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorPrimaryDark"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/onButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="2dp"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/white"
+            android:background="@android:color/white"
             android:text="On"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp" />
@@ -36,10 +41,62 @@
             android:id="@+id/offButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="2dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:background="@color/colorPrimaryDark"
             android:text="Off"
             android:textColor="@android:color/white"
             android:textSize="24sp" />
+
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1"
+        android:text="Brightness"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/procent"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_margin="2dp"
+            android:layout_weight=".75"
+            android:background="@color/colorPrimaryDark"
+            android:text="75%"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/procentOff"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_margin="2dp"
+            android:layout_weight=".25"
+            android:background="@android:color/white"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Device Information"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp" />
+
 </LinearLayout>

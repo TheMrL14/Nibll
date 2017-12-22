@@ -25,10 +25,10 @@ public class devicesettings extends AppCompatActivity {
             public void onClick(View view) {
                 Button buttonOn = (Button) findViewById(R.id.onButton);
                 Button buttonOff = (Button) findViewById(R.id.offButton);
-                buttonOn.setTextColor(0x4587A0); //this is green color
-                buttonOn.setBackgroundColor(0xFFFFFF);
-                buttonOff.setTextColor(0xFFFFFF);
-                buttonOff.setBackgroundColor(0x4587A0);
+                buttonOff.setTextColor(0xFF326270);
+                buttonOff.setBackgroundColor(0xFFFFFFFF);
+                buttonOn.setTextColor(0xFFFFFFFF);
+                buttonOn.setBackgroundColor(0xFF326270);
             }
         });
 
@@ -37,10 +37,10 @@ public class devicesettings extends AppCompatActivity {
             public void onClick(View view) {
                 Button buttonOn = (Button) findViewById(R.id.onButton);
                 Button buttonOff = (Button) findViewById(R.id.offButton);
-                buttonOff.setTextColor(0x4587A0); //this is green color
-                buttonOff.setBackgroundColor(0xFFFFFF);
-                buttonOn.setTextColor(0xFFFFFF);
-                buttonOn.setBackgroundColor(0x4587A0);
+                buttonOn.setTextColor(0xFF326270);
+                buttonOn.setBackgroundColor(0xFFFFFFFF);
+                buttonOff.setTextColor(0xFFFFFFFF);
+                buttonOff.setBackgroundColor(0xFF326270);
             }
         });
     }

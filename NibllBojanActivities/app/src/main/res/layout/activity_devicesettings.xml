@@ -64,30 +64,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
         android:background="@color/colorPrimaryDark"
-        android:orientation="horizontal">
+        >
 
-        <Button
-            android:id="@+id/procent"
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="2dp"
-            android:layout_weight=".75"
-            android:background="@color/colorPrimaryDark"
-            android:text="75%"
-            android:textColor="@android:color/white"
-            android:textSize="24sp" />
+            android:layout_weight="1"
 
-        <Button
-            android:id="@+id/procentOff"
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
-            android:layout_margin="2dp"
-            android:layout_weight=".25"
-            android:background="@android:color/white"
-            android:textColor="@android:color/white"
-            android:textSize="24sp" />
-
+            android:progressDrawable="@drawable/lamp_seekbar"
+            android:thumb="@color/colorPrimaryDark" />
     </LinearLayout>
 
     <TextView

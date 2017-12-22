@@ -17,6 +17,8 @@ public class devicesettings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_devicesettings);
 
+        findViewById(R.id.seekBar).setPadding(0,0,0,0);
+
         androidButtonOn = (Button) findViewById(R.id.onButton);
         androidButtonOff = (Button) findViewById(R.id.offButton);
 

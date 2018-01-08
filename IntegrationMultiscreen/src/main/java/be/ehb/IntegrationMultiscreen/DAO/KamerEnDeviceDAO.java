@@ -18,7 +18,7 @@ public class KamerEnDeviceDAO {
     public static ArrayList<KamerEnDevice> getKamerEnDevice() {
 		ArrayList<KamerEnDevice> resultaat = new ArrayList<KamerEnDevice>();
 		try {
-			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from IP1718004.KamerEnDeviceenEnKamer");
+			ResultSet mijnResultset = Database.voerSqlUitEnHaalResultaatOp("SELECT * from KamerEnDevice");
 			if (mijnResultset != null) {
 				while (mijnResultset.next()) {
 					KamerEnDevice huidigeKamerEnDevice = converteerHuidigeRijNaarObject(mijnResultset);

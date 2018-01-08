@@ -52,7 +52,7 @@ public class deviceTest extends AppCompatActivity {
     private static final String urlOff =
             "http://192.168.1.128:5001/send?protocol=kaku_switch&id=27672578&unit=0&off=1";
 //    private static final String urlOn = "http://192.168.1.128:5001/send?protocol=kaku_switch&id=27672578&unit=0&on=1";
-    private static final String urlOn = "http://192.168.1.128/deviceinfo.json";
+    private static final String urlOn = "http://192.168.1.128:8080/device/getAll";
     private boolean networkOk = true;
     private boolean ledOn = false;
     TextView output, mTextView;

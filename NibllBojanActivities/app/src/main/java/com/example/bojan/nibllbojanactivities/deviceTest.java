@@ -19,31 +19,44 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Cache;
+import com.android.volley.Network;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.BasicNetwork;
+import com.android.volley.toolbox.DiskBasedCache;
+import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.bojan.nibllbojanactivities.services.MyService;
-import com.example.bojan.nibllbojanactivities.utils.NetworkHelper;
+import com.example.bojan.nibllbojanactivities.utils.MySingleton;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Iterator;
+
 
 public class deviceTest extends AppCompatActivity {
+
+    public static final String VolleyTAG= "MyTag";
+    StringRequest stringRequest;
+    RequestQueue mRequestQueue;
+
+
+
     private static final String urlOff =
             "http://192.168.1.128:5001/send?protocol=kaku_switch&id=27672578&unit=0&off=1";
-    private static final String urlOn = http://192.168.1.128:5001/send?protocol=kaku_switch&id=27672578&unit=0&off=1";
-    private boolean networkOk;
+//    private static final String urlOn = "http://192.168.1.128:5001/send?protocol=kaku_switch&id=27672578&unit=0&on=1";
+    private static final String urlOn = "http://192.168.1.128/deviceinfo.json";
+    private boolean networkOk = true;
     private boolean ledOn = false;
     TextView output, mTextView;
 
-    private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String message =
-                    intent.getStringExtra(MyService.MY_SERVICE_PAYLOAD);
-            output.append(message + "\n");
-        }
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +64,6 @@ public class deviceTest extends AppCompatActivity {
 
         output = (TextView) findViewById(R.id.output);
 
-        LocalBroadcastManager.getInstance(getApplicationContext())
-                .registerReceiver(mBroadcastReceiver,
-                        new IntentFilter(MyService.MY_SERVICE_MESSAGE));
-
-        networkOk = NetworkHelper.hasNetworkAccess(this);
         output.append("Network ok: " + networkOk);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -71,33 +79,83 @@ public class deviceTest extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
 
-        LocalBroadcastManager.getInstance(getApplicationContext())
-                .unregisterReceiver(mBroadcastReceiver);
+    @Override
+    protected void onStop() {
+        super.onStop();
+//        if (mRequestQueue != null) {
+//            mRequestQueue.cancelAll(VolleyTAG);
+//        }
     }
 
     public void remoteOn(View view) {
+        final TextView mTextView;
+        mTextView = (TextView) findViewById(R.id.output);
+
         if(networkOk){
-        Intent intent = new Intent(this, MyService.class);
-//                intent.setData(Uri.parse(urlOn));
-//                startService(intent);
-        // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
 
-// Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, urlOn,
-                new Response.Listener<String>() {
+            RequestQueue mRequestQueue = MySingleton.getInstance(this.getApplicationContext()).
+                    getRequestQueue();
 
-                    @Override
-                    public void onResponse(String response) {
-                    }
-                }, new Response.ErrorListener() {
-            public void onErrorResponse(VolleyError error) {
-                Log.i("fuck you all!!!!", "onErrorResponse: didn't work");
-            }
-        });
+            JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                    (Request.Method.GET, urlOn, null, new Response.Listener<JSONObject>() {
+
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            String test = "";
+                            Log.d("lol", "lol");
+                            try {
+                               // mTextView.setText("Response: " + response.toJSONArray());
+                                Iterator x = response.keys();
+                                JSONArray jsonArray = new JSONArray();
+
+                                while (x.hasNext()){
+                                    Log.d("lol", "next ");
+                                    String key = (String) x.next();
+                                    jsonArray.put(response.get(key));
+                                }
+                                for (int i=0; i < jsonArray.length(); i++){
+                                  test +=  jsonArray.getJSONObject(i).get("naamDevice").toString() + " ";
+                                }
+                                mTextView.setText("response: " + test);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // TODO Auto-generated method stub
+
+                        }
+
+
+                    });
+
+// Access the RequestQueue through your singleton class.
+            MySingleton.getInstance(this).addToRequestQueue(jsObjRequest);
+
+
+// Formulate the request and handle the response.
+//            StringRequest stringRequest = new StringRequest(Request.Method.GET, urlOn,
+//                    new Response.Listener<String>() {
+//                        @Override
+//                        public void onResponse(String response) {
+//                            // Do something with the response
+//                        }
+//                    },
+//                    new Response.ErrorListener() {
+//                        @Override
+//                        public void onErrorResponse(VolleyError error) {
+//                            // Handle error
+//                        }
+//                    });
+
 // Add the request to the RequestQueue.
-        queue.add(stringRequest);
+//            MySingleton.getInstance(this).addToRequestQueue(stringRequest);
         Toast.makeText(this, "Led is aan", Toast.LENGTH_SHORT).show();
     }
 
@@ -112,81 +170,33 @@ public class deviceTest extends AppCompatActivity {
 
             plopSound.start();
 
-            RequestQueue queue = Volley.newRequestQueue(this);
+            RequestQueue mRequestQueue = MySingleton.getInstance(this.getApplicationContext()).
+                    getRequestQueue();
 
-// Request a string response from the provided URL.
+
+// Formulate the request and handle the response.
             StringRequest stringRequest = new StringRequest(Request.Method.GET, urlOff,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
+                            // Do something with the response
                         }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Log.i("fuck you all!!!!", "onErrorResponse: didn't work");
-                }
-            });
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // Handle error
+                        }
+                    });
+
 // Add the request to the RequestQueue.
-            queue.add(stringRequest);
+            MySingleton.getInstance(this).addToRequestQueue(stringRequest);
+
             Toast.makeText(this, "Led is uit", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Network not available!", Toast.LENGTH_SHORT).show();
         }
 
-    }
-
-    public void runClickHandler(View view) {
-
-        if (networkOk) {
-            if(ledOn){
-//                Intent intent = new Intent(this, MyService.class);
-//                intent.setData(Uri.parse(urlOff));
-//                startService(intent);
-                // Instantiate the RequestQueue.
-                RequestQueue queue = Volley.newRequestQueue(this);
-
-// Request a string response from the provided URL.
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, urlOff,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                            }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.i("fuck you all!!!!", "onErrorResponse: didn't work");
-                    }
-                });
-// Add the request to the RequestQueue.
-                queue.add(stringRequest);
-                Toast.makeText(this, "Led is uit", Toast.LENGTH_SHORT).show();
-            }else{
-//                Intent intent = new Intent(this, MyService.class);
-//                intent.setData(Uri.parse(urlOn));
-//                startService(intent);
-                // Instantiate the RequestQueue.
-                RequestQueue queue = Volley.newRequestQueue(this);
-
-// Request a string response from the provided URL.
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, urlOn,
-                        new Response.Listener<String>() {
-
-                    @Override
-                    public void onResponse(String response) {
-                    }
-                }, new Response.ErrorListener() {
-                    public void onErrorResponse(VolleyError error) {
-                        Log.i("fuck you all!!!!", "onErrorResponse: didn't work");
-                    }
-                });
-// Add the request to the RequestQueue.
-                queue.add(stringRequest);
-                Toast.makeText(this, "Led is aan", Toast.LENGTH_SHORT).show();
-            }
-        ledOn = !ledOn;
-        } else {
-            Toast.makeText(this, "Network not available!", Toast.LENGTH_SHORT).show();
-        }
     }
 
 

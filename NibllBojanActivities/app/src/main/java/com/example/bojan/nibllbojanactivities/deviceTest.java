@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -29,8 +30,8 @@ import com.example.bojan.nibllbojanactivities.utils.NetworkHelper;
 
 public class deviceTest extends AppCompatActivity {
     private static final String urlOff =
-            "http://nibll.local:5001/send?protocol=kaku_switch&id=5218304&unit=1&repeat=5&off=1";
-    private static final String urlOn = "http://nibll.local:5001/send?protocol=kaku_switch&id=5218304&unit=1&repeat=5&on=1";
+            "http://192.168.1.128:5001/send?protocol=kaku_switch&id=27672578&unit=0&off=1";
+    private static final String urlOn = http://192.168.1.128:5001/send?protocol=kaku_switch&id=27672578&unit=0&off=1";
     private boolean networkOk;
     private boolean ledOn = false;
     TextView output, mTextView;
@@ -73,6 +74,65 @@ public class deviceTest extends AppCompatActivity {
 
         LocalBroadcastManager.getInstance(getApplicationContext())
                 .unregisterReceiver(mBroadcastReceiver);
+    }
+
+    public void remoteOn(View view) {
+        if(networkOk){
+        Intent intent = new Intent(this, MyService.class);
+//                intent.setData(Uri.parse(urlOn));
+//                startService(intent);
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+// Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, urlOn,
+                new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                }, new Response.ErrorListener() {
+            public void onErrorResponse(VolleyError error) {
+                Log.i("fuck you all!!!!", "onErrorResponse: didn't work");
+            }
+        });
+// Add the request to the RequestQueue.
+        queue.add(stringRequest);
+        Toast.makeText(this, "Led is aan", Toast.LENGTH_SHORT).show();
+    }
+
+ else {
+        Toast.makeText(this, "Network not available!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void remoteOff(View view) {
+        if (networkOk) {
+            final MediaPlayer plopSound = MediaPlayer.create(this, R.raw.plop);
+
+            plopSound.start();
+
+            RequestQueue queue = Volley.newRequestQueue(this);
+
+// Request a string response from the provided URL.
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, urlOff,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.i("fuck you all!!!!", "onErrorResponse: didn't work");
+                }
+            });
+// Add the request to the RequestQueue.
+            queue.add(stringRequest);
+            Toast.makeText(this, "Led is uit", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Network not available!", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void runClickHandler(View view) {

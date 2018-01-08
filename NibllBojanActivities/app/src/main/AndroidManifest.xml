@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".scanScreen">
+        <activity android:name=".deviceTest">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".home" />
         <activity
-            android:name=".deviceTest"
+            android:name=".scanScreen"
             android:label="@string/title_activity_device_test"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".devicesettings"></activity>

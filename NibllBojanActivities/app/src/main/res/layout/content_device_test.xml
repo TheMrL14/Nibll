@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView" />
+<<<<<<< HEAD
 
     <Button
         android:id="@+id/button"
@@ -36,4 +37,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
+=======
+>>>>>>> parent of 5ef08e2... somebody's going to die
 </android.support.constraint.ConstraintLayout>

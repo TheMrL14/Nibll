@@ -7,8 +7,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+<<<<<<< HEAD
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
+=======
+>>>>>>> parent of 5ef08e2... somebody's going to die
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -43,8 +46,13 @@ import java.util.Collection;
 
 public class deviceTest extends AppCompatActivity {
     private static final String urlOff =
+<<<<<<< HEAD
             "http://192.168.1.128:5001/send?protocol=kaku_switch&id=27672578&unit=0&off=1";
     private static final String urlOn = "http://192.168.1.128:5001/send?protocol=kaku_switch&id=27672578&unit=0&off=1";
+=======
+            "http://nibll.local:5001/send?protocol=kaku_switch&id=5218304&unit=1&repeat=5&off=1";
+    private static final String urlOn = "http://nibll.local:5001/send?protocol=kaku_switch&id=5218304&unit=1&repeat=5&on=1";
+>>>>>>> parent of 5ef08e2... somebody's going to die
     private boolean networkOk;
     private boolean ledOn = false;
     TextView output, mTextView;
@@ -224,6 +232,7 @@ public class deviceTest extends AppCompatActivity {
 //                .unregisterReceiver(mBroadcastReceiver);
     }
 
+<<<<<<< HEAD
     public void remoteOn(View view) {
         if(networkOk){
 //        Intent intent = new Intent(this, MyService.class);
@@ -285,6 +294,8 @@ public class deviceTest extends AppCompatActivity {
 
     }
 
+=======
+>>>>>>> parent of 5ef08e2... somebody's going to die
     public void runClickHandler(View view) {
 
         if (networkOk) {

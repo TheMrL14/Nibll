@@ -30,25 +30,25 @@ public class SensorController {
      @RequestMapping("/getById")
 	public Sensor getSensorById(@RequestParam(value = "id", defaultValue = "1") int id) {
 		// Defaults aanroepen met
-		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
+		// http://localhost:8080/sensor/getById
 		// Custom aanroepen met
-		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn?naam=Maarten
+		// http://localhost:8080/sensor/getById?id=1
                                     Sensor sensor = SensorDAO.getSensorById(id);
 		return sensor;
 	}
-        @RequestMapping(value ="/Post",method = RequestMethod.POST)
+        @RequestMapping(value ="/post",method = RequestMethod.POST)
 	public void PostDevice(@RequestBody Sensor newSensor) {
 		// Defaults aanroepen met
-		// http://localhost:8080/test/Postactiviteiten
+		// http://localhost:8080/sensor/post
 		// newActiviteit = (new Activiteit(0,newActiviteit.getNaamActiviteit("naamActiviteit"),);
                 SensorDAO.voegSensorToe(newSensor);    
 }  
          @RequestMapping(value ="/statusChangeById")
 	public void PostDevice(@RequestParam(value = "id", defaultValue = "1") int id,@RequestParam(value = "status", defaultValue = "0") int status) {
 		// Defaults aanroepen met
-		// http://localhost:8080/status/statusChangeById
+		// http://localhost:8080/sensor/statusChangeById
 		//Custom aanroepen met
-                // http://localhost:8080/status/statusChangeById?id=1&status=0
+                // http://localhost:8080/sensor/statusChangeById?id=1&status=0
                 SensorDAO.setStatusById(id,status);    
 }  
 }

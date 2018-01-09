@@ -1,7 +1,6 @@
 package com.example.bojan.nibllbojanactivities;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,9 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -20,11 +16,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.example.bojan.nibllbojanactivities.Adapter.DeviceArrayAdapter;
-import com.example.bojan.nibllbojanactivities.database.ApplicatieDatabase;
 import com.example.bojan.nibllbojanactivities.model.Device;
 import com.example.bojan.nibllbojanactivities.utils.MySingleton;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -57,7 +50,7 @@ public class home extends AppCompatActivity {
     }
 
     private void turnDeviceOnOff(Boolean on, int deviceId) {
-      String url =  "http://192.168.1.131:8080/device/statusChangeById?";
+      String url =  "http://192.168.1.128:8080/device/statusChangeById?";
       url += "id=" + deviceId;
       if(on){
           url += "&status=1";
@@ -77,7 +70,7 @@ public class home extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // error
-                        Log.d("Error.Response", error.toString() + " lol");
+                        Log.d("Error.Response", error.toString());
                     }
                 }
         );
@@ -86,7 +79,7 @@ public class home extends AppCompatActivity {
     }
 private void getAllDevice(){
     JsonArrayRequest jsObjRequest = new JsonArrayRequest
-            (Request.Method.GET, "http://192.168.1.131:8080/device/getAll", null, new Response.Listener<JSONArray>() {
+            (Request.Method.GET, "http://192.168.1.128:8080/device/getAll", null, new Response.Listener<JSONArray>() {
 
 
                 @Override
@@ -104,10 +97,6 @@ private void getAllDevice(){
                             e.printStackTrace();
                         }
 
-                    }
-
-                    for (Device device : alleDevice) {
-                        Log.d("lol", "onResponse: " + device.getName() + " " + device.getStatus().toString());
                     }
 
                     vulLijstOp(alleDevice);
@@ -148,7 +137,6 @@ private void getAllDevice(){
             Toast.makeText(home.this, "Short Press", Toast.LENGTH_LONG).show();
 
             Device mijnGeselecteerdeDevice = (Device) parent.getItemAtPosition(position);
-            Log.d("Naam", mijnGeselecteerdeDevice.getName());
             turnDeviceOnOff(!mijnGeselecteerdeDevice.getStatus() ,mijnGeselecteerdeDevice.getDeviceId());
         }
     });

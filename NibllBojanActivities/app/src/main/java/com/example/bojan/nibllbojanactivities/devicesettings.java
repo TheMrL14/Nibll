@@ -1,6 +1,7 @@
 package com.example.bojan.nibllbojanactivities;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,11 +18,10 @@ import com.example.bojan.nibllbojanactivities.model.Device;
 import com.example.bojan.nibllbojanactivities.utils.MySingleton;
 
 public class devicesettings extends AppCompatActivity {
-
+    CountDownTimer countDownTimer;
     Button buttonOn;
     Button buttonOff;
-    boolean click = false;
-    String urlOn = "http://localhost:8080/device/statusChangeById?id=0&status=0";
+    String url = "http://localhost:8080/device/statusChangeById?";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,45 +42,43 @@ public class devicesettings extends AppCompatActivity {
 
             findViewById(R.id.seekBar).setPadding(0,0,0,0);
 
-            buttonOn = (Button) findViewById(R.id.onButton);
-            buttonOff = (Button) findViewById(R.id.offButton);
-
-            if(doorgestuurdeDevice.getStatus()){
-                buttonOff.setTextColor(0xFF326270);
-                buttonOff.setBackgroundColor(0xFFFFFFFF);
-                buttonOn.setTextColor(0xFFFFFFFF);
-                buttonOn.setBackgroundColor(0xFF326270);
-            }else{
-                buttonOn.setTextColor(0xFF326270);
-                buttonOn.setBackgroundColor(0xFFFFFFFF);
-                buttonOff.setTextColor(0xFFFFFFFF);
-                buttonOff.setBackgroundColor(0xFF326270);
-            }
+            changeButtonLayout(doorgestuurdeDevice.getStatus());
 
            buttonOn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    turnDeviceOnOff(true, doorgestuurdeDevice.getDeviceId());
-                    buttonOff.setTextColor(0xFF326270);
-                    buttonOff.setBackgroundColor(0xFFFFFFFF);
-                    buttonOn.setTextColor(0xFFFFFFFF);
-                    buttonOn.setBackgroundColor(0xFF326270);
+                    changeButtonLayout(true);
                 }
             });
 
             buttonOff.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    turnDeviceOnOff(false, doorgestuurdeDevice.getDeviceId());
-                    buttonOn.setTextColor(0xFF326270);
-                    buttonOn.setBackgroundColor(0xFFFFFFFF);
-                    buttonOff.setTextColor(0xFFFFFFFF);
-                    buttonOff.setBackgroundColor(0xFF326270);
+                    changeButtonLayout(false);
                 }
             });
 
         }
 
+    }
+
+
+
+    private void changeButtonLayout(Boolean on){
+        buttonOn = (Button) findViewById(R.id.onButton);
+        buttonOff = (Button) findViewById(R.id.offButton);
+
+        if(on){
+            buttonOff.setTextColor(0xFF326270);
+            buttonOff.setBackgroundColor(0xFFFFFFFF);
+            buttonOn.setTextColor(0xFFFFFFFF);
+            buttonOn.setBackgroundColor(0xFF326270);
+        }else{
+            buttonOn.setTextColor(0xFF326270);
+            buttonOn.setBackgroundColor(0xFFFFFFFF);
+            buttonOff.setTextColor(0xFFFFFFFF);
+            buttonOff.setBackgroundColor(0xFF326270);
+        }
     }
 
     private void turnDeviceOnOff(Boolean on, int deviceId) {

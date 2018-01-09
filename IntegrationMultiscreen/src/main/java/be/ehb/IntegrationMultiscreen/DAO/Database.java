@@ -82,7 +82,6 @@ public class Database {
 			if (mijnConnectie != null) {
 				mijnConnectie.close();
 			}
-
 		}
 
 		return aantalAangepasteRijen;

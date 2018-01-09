@@ -51,7 +51,7 @@ public class SensorDAO {
 	public static int voegSensorToe(Sensor nieuweSensor) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Sensor (naamSensor, inputWaarde) VALUES (?,?)", new Object[] { nieuweSensor.getNaamSensor(), nieuweSensor.getInputWaarde()});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("INSERT INTO IP1718004.Sensor (naamSensor, inputWaarde,status) VALUES (?,?,?)", new Object[] { nieuweSensor.getNaamSensor(), nieuweSensor.getInputWaarde(),nieuweSensor.getStatus()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -62,7 +62,7 @@ public class SensorDAO {
 	public static int updateSensor(Sensor nieuweSensor) {
 		int aantalAangepasteRijen = 0;
 		try {
-			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Sensor SET naamSensor = ?, inputWaarde = ? WHERE sensorId = ?", new Object[] {  nieuweSensor.getNaamSensor(), nieuweSensor.getInputWaarde(),});
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Sensor SET naamSensor = ?, inputWaarde = ?,status =? WHERE sensorId = ?", new Object[] {  nieuweSensor.getNaamSensor(), nieuweSensor.getInputWaarde(),nieuweSensor.getStatus()});
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			// Foutafhandeling naar keuze
@@ -82,6 +82,21 @@ public class SensorDAO {
 	}
 
 	private static Sensor converteerHuidigeRijNaarObject(ResultSet mijnResultset) throws SQLException {
-		return new Sensor(mijnResultset.getInt("sensorId"), mijnResultset.getString("naamSensor"), mijnResultset.getDouble("inputWaarde"));
+		return new Sensor(mijnResultset.getInt("sensorId"), mijnResultset.getString("naamSensor"), mijnResultset.getDouble("inputWaarde"),mijnResultset.getInt("status"));
+	}
+        
+        public static int setStatusById(int id,int status) {
+		int aantalAangepasteRijen = 0;
+                int[] idStatus; 
+                idStatus = new int[2];
+                idStatus[0] = id;
+                idStatus[1] = status;
+		try {
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Sensor SET status=? WHERE sensorId=?;", new Object[] { idStatus[1],idStatus[0] });
+		} catch (SQLException ex) {
+			System.out.println("foutje");
+			// Foutafhandeling naar keuze
+		}
+		return aantalAangepasteRijen;
 	}
 }

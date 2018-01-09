@@ -42,4 +42,11 @@ public class DeviceController {
 		// newActiviteit = (new Activiteit(0,newActiviteit.getNaamActiviteit("naamActiviteit"),);
                 DeviceDAO.voegDeviceToe(newDevice);    
 }
+      @RequestMapping(value ="/statusChangeById")
+	public void PostDevice(@RequestParam(value = "id", defaultValue = "1") int id,@RequestParam(value = "status", defaultValue = "0") int status) {
+		// Defaults aanroepen met
+		// http://localhost:8080/test/Postactiviteiten
+		// newActiviteit = (new Activiteit(0,newActiviteit.getNaamActiviteit("naamActiviteit"),);
+                DeviceDAO.setStatusById(id,status);    
+}  
 }

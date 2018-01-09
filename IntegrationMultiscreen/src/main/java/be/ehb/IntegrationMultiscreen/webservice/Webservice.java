@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 /**
  *
  * @author MaartenH
- */
-//@SpringBootApplication
-//@CrossOrigin
+ */@SpringBootApplication
+ @CrossOrigin
 public class Webservice {
         public static void main(String[] args) {
-        //SpringApplication.run(Webservice.class, args);
-            DeviceDAO.setStatusById(0,0);
+        SpringApplication.run(Webservice.class, args);
+           
         }
     
 }

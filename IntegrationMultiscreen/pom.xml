@@ -67,4 +67,5 @@
             <url>https://repo.spring.io/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
+    <name>Integration Multiscreen</name>
 </project>

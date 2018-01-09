@@ -31,15 +31,18 @@ import org.json.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class deviceTest extends AppCompatActivity {
 
 
-//    private static final String urlOff ="http://192.168.1.128:5001/send?protocol=kaku_switch&id=27672578&unit=0&off=1";
-//    private static final String urlOn = "http://192.168.1.128:5001/send?protocol=kaku_switch&id=27672578&unit=0&on=1";
-    private static final String urlOff = "http://192.168.0.4/success.json";
+    private static final String urlOff ="http://192.168.1.128:5001/send?protocol=kaku_switch&id=27672578&unit=0&off=1";
+    private static final String urlOn = "http://192.168.1.128:5001/send?protocol=kaku_switch&id=27672578&unit=0&on=1";
+//    private static final String urlOff = "http://192.168.0.4/success.json";
 //    private static final String urlOn = "http://192.168.1.128:8080/device/getAll";
-    private static final String urlOn = "http://192.168.0.4/devices.json";
+//    private static final String urlOn = "http://192.168.0.4/devices.json";
     private boolean networkOk = true;
 
     @Override
@@ -71,65 +74,93 @@ public class deviceTest extends AppCompatActivity {
         mTextView = (TextView) findViewById(R.id.output);
 
         if(networkOk){
-            JsonArrayRequest jsObjRequest = new JsonArrayRequest
-                    (Request.Method.GET, urlOn, null, new Response.Listener<JSONArray>() {
-
-
-
-
+            StringRequest postRequest = new StringRequest(Request.Method.POST, urlOn,
+                    new Response.Listener<String>()
+                    {
                         @Override
-                        public void onResponse(JSONArray response) {
-                            String test = "";
-                            Gson gson = new Gson();
-                            gson.fromJson(response.toString(), JsonArray.class);
-
-                            for (int i = 0; i < response.length(); i++) {
-                                try {
-                                    JSONObject responseObject =  response.getJSONObject(i);
-                                    test += responseObject.get("naamDevice") + " ,";
-
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-//                            for(JsonElement jsonElement : (JsonArray) response)) {
-//                                JsonObject responseObject = response.getAsJsonObject();
-//
-//                                test += responseObject.get("naamDevice") + " ,";
-////                                JsonElement jsonElement =  response.get(i);
-////                                jsonElement.
-//                            }
-
-                               // mTextView.setText("Response: " + response.toJSONArray());
-//                                Iterator x = response.keys();
-//                                JSONArray jsonArray = new JSONArray();
-//
-//                                while (x.hasNext()){
-//                                    Log.d("lol", "next ");
-//                                    String key = (String) x.next();
-//                                    jsonArray.put(response.get(key));
-//                                }
-//                                for (int i=0; i < jsonArray.length(); i++){
-//                                  test +=  jsonArray.getJSONObject(i).get("naamDevice").toString() + " ";
-//                                }
-
-                                mTextView.setText("response: " + test);
-
-
+                        public void onResponse(String response) {
+                            // response
+                            Log.d("Response", response);
                         }
-                    }, new Response.ErrorListener() {
-
+                    },
+                    new Response.ErrorListener()
+                    {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            // TODO Auto-generated method stub
-                            Log.d("lol", "onErrorResponse: " + error);
+                            // error
+                            Log.d("Error.Response", error.toString());
                         }
+                    }
+            ) {
+                @Override
+                protected Map<String, String> getParams()
+                {
+                    Map<String, String>  params = new HashMap<String, String>();
+//                    params.put("name", "Alif");
+//                    params.put("domain", "http://itsalif.info");
 
-                    });
+                    return params;
+                }
+            };
+//            JsonArrayRequest jsObjRequest = new JsonArrayRequest
+//                    (Request.Method.GET, urlOn, null, new Response.Listener<JSONArray>() {
+//
+//
+//
+//
+//                        @Override
+//                        public void onResponse(JSONArray response) {
+//                            String test = "";
+////                            Gson gson = new Gson();
+////                            gson.fromJson(response.toString(), JsonArray.class);
+////
+////                            for (int i = 0; i < response.length(); i++) {
+////                                try {
+////                                    JSONObject responseObject =  response.getJSONObject(i);
+////                                    test += responseObject.get("naamDevice") + " ,";
+////
+////                                } catch (JSONException e) {
+////                                    e.printStackTrace();
+////                                }
+////
+////                            }
+////                            for(JsonElement jsonElement : (JsonArray) response)) {
+////                                JsonObject responseObject = response.getAsJsonObject();
+////
+////                                test += responseObject.get("naamDevice") + " ,";
+//////                                JsonElement jsonElement =  response.get(i);
+//////                                jsonElement.
+////                            }
+//
+//                               // mTextView.setText("Response: " + response.toJSONArray());
+////                                Iterator x = response.keys();
+////                                JSONArray jsonArray = new JSONArray();
+////
+////                                while (x.hasNext()){
+////                                    Log.d("lol", "next ");
+////                                    String key = (String) x.next();
+////                                    jsonArray.put(response.get(key));
+////                                }
+////                                for (int i=0; i < jsonArray.length(); i++){
+////                                  test +=  jsonArray.getJSONObject(i).get("naamDevice").toString() + " ";
+////                                }
+//
+//                                mTextView.setText("response: " + test);
+//
+//
+//                        }
+//                    }, new Response.ErrorListener() {
+//
+//                        @Override
+//                        public void onErrorResponse(VolleyError error) {
+//                            // TODO Auto-generated method stub
+//                            Log.d("lol", "onErrorResponse: " + error);
+//                        }
+//
+//                    });
 
 // Access the RequestQueue through your singleton class.
-            MySingleton.getInstance(this).addToRequestQueue(jsObjRequest);
+            MySingleton.getInstance(this).addToRequestQueue(postRequest);
 
         Toast.makeText(this, "Led is aan", Toast.LENGTH_SHORT).show();
     }

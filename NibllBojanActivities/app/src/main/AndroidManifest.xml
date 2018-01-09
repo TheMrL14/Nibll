@@ -24,7 +24,9 @@
             android:name=".deviceTest"
             android:label="@string/title_activity_device_test"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".devicesettings"></activity>
+        <activity android:name=".devicesettings" />
+        <activity android:name=".KamerActivity" />
+        <activity android:name=".DeviceActivity"></activity>
     </application>
 
 </manifest>

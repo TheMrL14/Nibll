@@ -29,24 +29,24 @@ public class DeviceController {
     @RequestMapping("/getById")
 	public Device getDeviceById(@RequestParam(value = "id", defaultValue = "1") int id) {
 		// Defaults aanroepen met
-		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
+		// http://localhost:8080/device/getById
 		// Custom aanroepen met
-		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn?naam=Maarten
+		// http://localhost:8080/device/getById?id=1
                                     Device device = DeviceDAO.getDeviceById(id);
 		return device;
 	}
         @RequestMapping(value ="/Post",method = RequestMethod.POST)
 	public void PostDevice(@RequestBody Device newDevice) {
 		// Defaults aanroepen met
-		// http://localhost:8080/test/Postactiviteiten
-		// newActiviteit = (new Activiteit(0,newActiviteit.getNaamActiviteit("naamActiviteit"),);
+		// http://localhost:8080/device/post
                 DeviceDAO.voegDeviceToe(newDevice);    
 }
       @RequestMapping(value ="/statusChangeById")
 	public void PostDevice(@RequestParam(value = "id", defaultValue = "1") int id,@RequestParam(value = "status", defaultValue = "0") int status) {
 		// Defaults aanroepen met
-		// http://localhost:8080/test/Postactiviteiten
-		// newActiviteit = (new Activiteit(0,newActiviteit.getNaamActiviteit("naamActiviteit"),);
+		// http://localhost:8080/device/statusChangeById
+		//Custom aanroepen met
+                // http://localhost:8080/device/statusChangeById?id=1&status=0
                 DeviceDAO.setStatusById(id,status);    
 }  
 }

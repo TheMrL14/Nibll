@@ -5,6 +5,7 @@
  */
 package be.ehb.IntegrationMultiscreen.webservice;
 
+import be.ehb.IntegrationMultiscreen.DAO.DeviceDAO;
 import be.ehb.IntegrationMultiscreen.DAO.SensorDAO;
 import be.ehb.IntegrationMultiscreen.model.Sensor;
 import java.util.ArrayList;
@@ -41,5 +42,13 @@ public class SensorController {
 		// http://localhost:8080/test/Postactiviteiten
 		// newActiviteit = (new Activiteit(0,newActiviteit.getNaamActiviteit("naamActiviteit"),);
                 SensorDAO.voegSensorToe(newSensor);    
+}  
+         @RequestMapping(value ="/statusChangeById")
+	public void PostDevice(@RequestParam(value = "id", defaultValue = "1") int id,@RequestParam(value = "status", defaultValue = "0") int status) {
+		// Defaults aanroepen met
+		// http://localhost:8080/status/statusChangeById
+		//Custom aanroepen met
+                // http://localhost:8080/status/statusChangeById?id=1&status=0
+                SensorDAO.setStatusById(id,status);    
 }  
 }

@@ -29,17 +29,16 @@ public class KamerController {
     @RequestMapping("/getById")
 	public Kamer getKamerById(@RequestParam(value = "id", defaultValue = "1") int id) {
 		// Defaults aanroepen met
-		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn
+		// http://localhost:8080/kamer/getById
 		// Custom aanroepen met
-		// http://localhost:8080/metEnkelvoudigeGetParameterEnEenvoudigeReturn?naam=Maarten
+		// http://localhost:8080/kamer/getById?id=1
                                     Kamer kamer = KamerDAO.getKamerById(id);
 		return kamer;
 	}
         @RequestMapping(value ="/post",method = RequestMethod.POST)
 	public void PostKamer(@RequestBody Kamer newKamer) {
 		// Defaults aanroepen met
-		// http://localhost:8080/test/Postactiviteiten
-		// newActiviteit = (new Activiteit(0,newActiviteit.getNaamActiviteit("naamActiviteit"),);
+		// http://localhost:8080/kamer/post
                 KamerDAO.voegKamerToe(newKamer);    
 }
 }

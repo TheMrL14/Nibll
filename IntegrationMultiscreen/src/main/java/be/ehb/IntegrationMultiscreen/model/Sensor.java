@@ -13,6 +13,7 @@ public class Sensor {
     private int sensorID;
     private String naamSensor;
     private double inputWaarde;
+    private int status;
   //--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--GETTERS EN SETTERS  
 
     public int getSensorID() {
@@ -38,12 +39,21 @@ public class Sensor {
     public void setInputWaarde(double inputWaarde) {
         this.inputWaarde = inputWaarde;
     }
+    
+    public int getStatus(){
+    return status;
+    }
+    
+    public void setStatus(int status){
+     this.status=status;   
+    }
  //--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--CONSTRUCTOR    
 
-    public Sensor(int sensorID, String naamSensor, double inputWaarde) {
+    public Sensor(int sensorID, String naamSensor, double inputWaarde,int status) {
         this.sensorID = sensorID;
         this.naamSensor = naamSensor;
         this.inputWaarde = inputWaarde;
+        this.status = status;
     }
     public Sensor(){
         

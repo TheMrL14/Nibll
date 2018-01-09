@@ -10,15 +10,16 @@ import be.ehb.IntegrationMultiscreen.DAO.KamerDAO;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.CrossOrigin;
+
 /**
  *
  * @author MaartenH
  */@SpringBootApplication
  @CrossOrigin
 public class Webservice {
-        public static void main(String[] args) {
+
+   public static void main(String[] args) {
         SpringApplication.run(Webservice.class, args);
-           
-        }
-    
+        GPIOController gpioController = new GPIOController();        
+    }
 }

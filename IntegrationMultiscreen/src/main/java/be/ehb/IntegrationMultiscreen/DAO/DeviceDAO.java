@@ -47,6 +47,21 @@ public class DeviceDAO {
 
 		return resultaat;
 	}
+        
+       public static int setStatusById(int id,int status) {
+		int aantalAangepasteRijen = 0;
+                int[] idStatus; 
+                idStatus = new int[2];
+                idStatus[0] = id;
+                idStatus[1] = status;
+		try {
+			aantalAangepasteRijen = Database.voerSqlUitEnHaalAantalAangepasteRijenOp("UPDATE IP1718004.Device SET  status = ? WHERE deviceId = ?", new Object[] { idStatus[1],idStatus[0] });
+		} catch (SQLException ex) {
+			System.out.println("foutje");
+			// Foutafhandeling naar keuze
+		}
+		return aantalAangepasteRijen;
+	}
 
 	public static int voegDeviceToe(Device nieuweDevice) {
 		int aantalAangepasteRijen = 0;

@@ -1,0 +1,19 @@
+[{
+    "deviceId": 0,
+    "inputWaarde": 1.0,
+    "outputWaarde": 1.0,
+    "status": true,
+    "naamDevice": "lamp0"
+}, {
+    "deviceId": 1,
+    "inputWaarde": 152.0,
+    "outputWaarde": 255.0,
+    "status": true,
+    "naamDevice": "lamp1"
+}, {
+    "deviceId": 2,
+    "inputWaarde": 152.0,
+    "outputWaarde": 255.0,
+    "status": true,
+    "naamDevice": "lamp2"
+}]

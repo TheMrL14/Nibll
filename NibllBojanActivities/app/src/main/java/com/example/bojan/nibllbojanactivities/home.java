@@ -12,10 +12,22 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.bojan.nibllbojanactivities.Adapter.DeviceArrayAdapter;
 import com.example.bojan.nibllbojanactivities.database.ApplicatieDatabase;
 import com.example.bojan.nibllbojanactivities.model.Device;
+import com.example.bojan.nibllbojanactivities.utils.MySingleton;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class home extends AppCompatActivity {
@@ -39,10 +51,58 @@ public class home extends AppCompatActivity {
                     ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().voegNieuweDeviceToe(new Device(0, R.drawable.lamp_icon, R.drawable.lamp_scroll_off, "Keuken"));
                     alleDevices = ApplicatieDatabase.getDatabase(home.super.getApplicationContext()).getDeviceDao().getAlleDevice();
                 }
+
                 for(Device huidigeDevice : alleDevices) {
                     Log.d("DatabaseLezen", huidigeDevice.getName());
                 }
-                vulLijstOp(alleDevices);
+
+//                vulLijstOp(alleDevices);
+
+                 alleDevices = new ArrayList<Device>();
+
+                JsonArrayRequest jsObjRequest = new JsonArrayRequest
+                        (Request.Method.GET, "http://192.168.0.4/devices.json", null, new Response.Listener<JSONArray>() {
+
+
+
+
+                            @Override
+                            public void onResponse(JSONArray response) {
+
+                                List<Device> alleDevice = new ArrayList<Device>();
+
+                                for (int i = 0; i < response.length(); i++) {
+                                    try {
+                                        JSONObject responseObject =  response.getJSONObject(i);
+
+                                        alleDevice.add(new Device(Integer.parseInt(responseObject.get("deviceId").toString()), R.drawable.lamp_icon, R.drawable.lamp_scroll_off, responseObject.get("naamDevice").toString()));
+
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+
+                                for(Device device : alleDevice) {
+                                    Log.d("lol", "onResponse: " + device.getName());
+                                }
+
+                                vulLijstOp(alleDevice);
+
+
+
+                            }
+                        }, new Response.ErrorListener() {
+
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                // TODO Auto-generated method stub
+                                Log.d("lol", "onErrorResponse: " + error);
+                            }
+
+                        });
+
+                MySingleton.getInstance(home.this).addToRequestQueue(jsObjRequest);
 
                 GridView lstDevices = (GridView)findViewById(R.id.deviceGridview);
 

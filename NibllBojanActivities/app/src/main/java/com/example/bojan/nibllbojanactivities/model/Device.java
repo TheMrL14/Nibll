@@ -3,16 +3,19 @@ package com.example.bojan.nibllbojanactivities.model;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+import java.io.Serializable;
+
 /**
  * Created by bojan on 20-Dec-17.
  */
 @Entity
-public class Device {
+public class Device implements Serializable{
     @PrimaryKey(autoGenerate = true)
     private int deviceId;
     private int iconId;
     private int extraId;
     private String name;
+    private Boolean status;
 
     public int getDeviceId() {
         return deviceId;
@@ -46,10 +49,19 @@ public class Device {
         this.name = name;
     }
 
-    public Device(int deviceId, int iconId, int extraId, String name) {
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public Device(int deviceId, int iconId, int extraId, String name, Boolean status) {
         this.deviceId = deviceId;
         this.iconId = iconId;
         this.extraId = extraId;
         this.name = name;
+        this.status = status;
     }
 }

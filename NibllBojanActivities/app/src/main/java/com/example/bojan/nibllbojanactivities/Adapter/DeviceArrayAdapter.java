@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.bojan.nibllbojanactivities.R;
@@ -47,6 +48,21 @@ public class DeviceArrayAdapter extends ArrayAdapter<Device> {
         deviceText.setText(weerTeGevenDevice.getName());
         deviceIcon.setImageResource(weerTeGevenDevice.getIconId());
         deviceIcon2.setImageResource(weerTeGevenDevice.getExtraId());
+
+        if(weerTeGevenDevice.getStatus()){
+            deviceIcon.setColorFilter(0xFFFFFFFF);
+            deviceIcon2.setColorFilter(0xFFFFFFFF);
+
+            LinearLayout backgroundColor = (LinearLayout) gridViewItem.findViewById(R.id.tileBlock);
+            backgroundColor.setBackgroundColor(0xFF5EACC7);
+        }else{
+            deviceIcon.setColorFilter(0xFF326270);
+
+            deviceIcon2.setColorFilter(0xFF326270);
+
+            LinearLayout backgroundColor = (LinearLayout) gridViewItem.findViewById(R.id.tileBlock);
+            backgroundColor.setBackgroundColor(0xFF4587A0);
+        }
         return gridViewItem;
     }
 }

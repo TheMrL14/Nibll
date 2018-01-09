@@ -31,7 +31,7 @@ public class home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.content_home);
 
         Thread mijnThread = new Thread(new Runnable() {
             @Override
@@ -43,7 +43,7 @@ public class home extends AppCompatActivity {
         mijnThread.start();
     }
 
-    public void vulLijstOp(List<Device> alleDevices) {
+    private void vulLijstOp(List<Device> alleDevices) {
         DeviceArrayAdapter mijnAdapter = new DeviceArrayAdapter(this, alleDevices);
         GridView mijnAdapterView = (GridView) findViewById(R.id.deviceGridview);
         mijnAdapterView.setAdapter(mijnAdapter);

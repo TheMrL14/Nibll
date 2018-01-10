@@ -38,18 +38,18 @@ public class home extends AppCompatActivity {
             public void run() {
                 getAllDevice();
             }
-        });
+        }); //haal devices op in aparte thread
 
         mijnThread.start();
     }
 
-    private void vulLijstOp(List<Device> alleDevices) {
+    private void vulLijstOp(List<Device> alleDevices) { //vul de lijst van alle apparaten op
         DeviceArrayAdapter mijnAdapter = new DeviceArrayAdapter(this, alleDevices);
         GridView mijnAdapterView = (GridView) findViewById(R.id.deviceGridview);
         mijnAdapterView.setAdapter(mijnAdapter);
     }
 
-    private void turnDeviceOnOff(Boolean on, int deviceId) {
+    private void turnDeviceOnOff(Boolean on, int deviceId) { //voer een post request uit voor een apparaat aan/uit te zetten
       String url =  "http://192.168.1.128:8080/device/statusChangeById?";
       url += "id=" + deviceId;
       if(on){
@@ -77,7 +77,7 @@ public class home extends AppCompatActivity {
 
         MySingleton.getInstance(this).addToRequestQueue(postRequest);
     }
-private void getAllDevice(){
+private void getAllDevice(){ //hierin word de json file met alle apparaten die zich in de database bevinden, opgehaald
     JsonArrayRequest jsObjRequest = new JsonArrayRequest
             (Request.Method.GET, "http://192.168.1.128:8080/device/getAll", null, new Response.Listener<JSONArray>() {
 
@@ -101,7 +101,7 @@ private void getAllDevice(){
 
                     vulLijstOp(alleDevice);
 
-                  countDownTimer =  new CountDownTimer(2000, 2000) {
+                  countDownTimer =  new CountDownTimer(2000, 2000) { //haal elke 2 seconden alle apparaten opnieuw op, voor de laatste status te weten
 
                       @Override
                       public void onTick(long l) {
@@ -130,11 +130,9 @@ private void getAllDevice(){
 
         @Override
 
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) { //als er op een apparaat geklikt wordt, wordt dit aan/uitgezet
             List<Device> alleDevice;
             Device device = (Device) parent.getItemAtPosition(position);
-
-            Toast.makeText(home.this, "Short Press", Toast.LENGTH_LONG).show();
 
             Device mijnGeselecteerdeDevice = (Device) parent.getItemAtPosition(position);
             turnDeviceOnOff(!mijnGeselecteerdeDevice.getStatus() ,mijnGeselecteerdeDevice.getDeviceId());
@@ -142,9 +140,7 @@ private void getAllDevice(){
     });
     lstDevices.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                     @Override
-                    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
-                        Toast.makeText(home.this, "Long Press", Toast.LENGTH_LONG).show();
+                    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) { //als er lang op een apparaat wordt gedrukt, dan zal er een detail pagina over het apparaat openenen
 
                         Intent intentLoadNewActivity = new Intent(home.this, devicesettings.class);
 

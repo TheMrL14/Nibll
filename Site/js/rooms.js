@@ -3,7 +3,7 @@ var rooms;
 window.addEventListener("load", laadKamers);
 
 function laadKamers() {
-  rooms = $.getJSON("http://localhost:8080/kamer/getAll", function(data) {
+  rooms = $.getJSON("http://192.168.1.128:8080/kamer/getAll", function(data) {
       var htmlString = "";
     data.forEach(function(kamer){
       htmlString += '<li class="roomsTile" kamerId="' + kamer.kamerId;

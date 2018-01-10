@@ -72,7 +72,7 @@ public class devicesettings extends AppCompatActivity {
 
     }
 
-private void haalDetailsOp()
+private void haalDetailsOp() //hierin worden alle gegevens van het apparaat opgehaald
 {
     JsonObjectRequest jsObjRequest = new JsonObjectRequest
             (Request.Method.GET, "http://192.168.1.128:8080/device/getById?id=" + deviceId, null, new Response.Listener<JSONObject>() {
@@ -89,7 +89,7 @@ private void haalDetailsOp()
 
                     changeButtonLayout(device.getStatus());
 
-                    countDownTimer = new CountDownTimer(2000, 2000) {
+                    countDownTimer = new CountDownTimer(2000, 2000) { //haal elke 2 seconden opnieuw de data van het apparaat op
 
                         @Override
                         public void onTick(long l) {
@@ -111,7 +111,7 @@ private void haalDetailsOp()
             });
     MySingleton.getInstance(devicesettings.this).addToRequestQueue(jsObjRequest);
 }
-    private void changeButtonLayout(Boolean on){
+    private void changeButtonLayout(Boolean on){ //voor de buttonlayout te wijzigen als het apparaat word in/ uitgeschakeld
         buttonOn = (Button) findViewById(R.id.onButton);
         buttonOff = (Button) findViewById(R.id.offButton);
 

@@ -31,7 +31,7 @@ public class scanScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) { //Als er op de knop geklikt word, word er een geluid afgespeeld op zowel de gsm als de raspberry pi en wordt de device pagina geopend
                 Toast.makeText(scanScreen.this, "Nibll was found", Toast.LENGTH_LONG).show();
-                Intent intentLoadNewActivity = new Intent(scanScreen.this, home.class);
+                Intent intentLoadNewActivity = new Intent(scanScreen.this, device.class);
                 String url ="http://192.168.1.128:5000/play/plop.mp3";
 
                 final MediaPlayer mediaPlayer = MediaPlayer.create(scanScreen.this, R.raw.plop);

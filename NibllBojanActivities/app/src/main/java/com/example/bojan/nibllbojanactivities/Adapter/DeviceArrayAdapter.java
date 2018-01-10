@@ -32,8 +32,7 @@ public class DeviceArrayAdapter extends ArrayAdapter<Device> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-        View row = convertView;
+        
 
 
         LayoutInflater mijnLayoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

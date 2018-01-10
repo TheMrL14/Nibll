@@ -19,10 +19,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home" />
+        <activity android:name=".device" />
         <activity android:name=".devicesettings" />
         <activity android:name=".KamerActivity" />
-        <activity android:name=".DeviceActivity"></activity>
+        <activity android:name=".DeviceAddActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

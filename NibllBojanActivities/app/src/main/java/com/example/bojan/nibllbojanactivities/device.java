@@ -2,6 +2,8 @@ package com.example.bojan.nibllbojanactivities;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,21 +27,31 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class home extends AppCompatActivity {
+public class device extends AppCompatActivity {
     CountDownTimer countDownTimer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_device);
+
 
         Thread mijnThread = new Thread(new Runnable() {
             @Override
             public void run() {
                 getAllDevice();
             }
-        }); //haal devices op in aparte thread
+        }); //haal device op in aparte thread
 
         mijnThread.start();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentLoadNewActivity = new Intent(device.this, DeviceAddActivity.class);
+                startActivity(intentLoadNewActivity);
+            }
+        });
     }
 
     private void vulLijstOp(List<Device> alleDevices) { //vul de lijst van alle apparaten op
@@ -122,7 +134,7 @@ private void getAllDevice(){ //hierin word de json file met alle apparaten die z
                 }
 
             });
-    MySingleton.getInstance(home.this).addToRequestQueue(jsObjRequest);
+    MySingleton.getInstance(device.this).addToRequestQueue(jsObjRequest);
     GridView lstDevices = (GridView) findViewById(R.id.deviceGridview);
     lstDevices.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         boolean click = false;
@@ -141,7 +153,7 @@ private void getAllDevice(){ //hierin word de json file met alle apparaten die z
                     @Override
                     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) { //als er lang op een apparaat wordt gedrukt, dan zal er een detail pagina over het apparaat openenen
 
-                        Intent intentLoadNewActivity = new Intent(home.this, devicesettings.class);
+                        Intent intentLoadNewActivity = new Intent(device.this, devicesettings.class);
 
 
                         Device mijnGeselecteerdeDevice = (Device) parent.getItemAtPosition(position);

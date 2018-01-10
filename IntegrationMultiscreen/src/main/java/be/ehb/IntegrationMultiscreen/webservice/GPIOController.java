@@ -16,6 +16,8 @@ import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
+
 /**
  *
  * @author ilhan
@@ -64,7 +66,7 @@ public class GPIOController {
 
                 try {
                     sendGET(link433);
-                    sendGET("http://nibll.local:5000/play/plop.mp3"); //Plop sound after change
+                    //sendGET("http://nibll.local:5000/play/plop.mp3"); //Plop sound after change
                 } catch (IOException ex) {
                     Logger.getLogger(GPIOController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -80,5 +82,5 @@ public class GPIOController {
             con.getInputStream();
         }
     }
-
+   
 }

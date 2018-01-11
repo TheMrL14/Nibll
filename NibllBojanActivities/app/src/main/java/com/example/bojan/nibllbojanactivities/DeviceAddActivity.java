@@ -5,10 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.example.bojan.nibllbojanactivities.utils.MySingleton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,35 +25,50 @@ public class DeviceAddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device_toevoegen);
-        deviceNaam = (EditText)  findViewById(R.id.deviceNaam);
+
 
     }
 
     public void voegtoe (View view){
+
         String url = "http://192.168.1.128:8080/device/Post";
-        StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        JSONObject jsonObject = new JSONObject();
+        deviceNaam = (EditText)  findViewById(R.id.deviceNaam);
+        try {
+            jsonObject.put("inputWaarde", 0);
+            jsonObject.put("outputWaarde", 0);
+            jsonObject.put( "status", false);
+            jsonObject.put("naamDevice", deviceNaam.getText());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest req = new JsonObjectRequest( Request.Method.POST, url,
+                jsonObject,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // Handle response
+                        DeviceAddActivity.super.finish();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //   Handle Error
+                    }
+                }) {
             @Override
-            public void onResponse(String response) {
-                //This code is executed if the server responds, whether or not the response contains data.
-                //The String 'response' contains the server's response.
-            }
-        }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                //This code is executed if there is an error.
-            }
-        }) {
-            protected Map<String, String> getParams() {
-                Map<String, Object> MyData = new HashMap<String, Object>();
-                MyData.put("inputWaarde", 0);
-                MyData.put("inputWaarde", "0");
-                MyData.put("inputWaarde", "0");
-                MyData.put("inputWaarde", deviceNaam.getText().toString());
-                return MyData;
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
             }
         };
+        MySingleton.getInstance(this).addToRequestQueue(req);
+        }
     }
-}
+
 
 
 

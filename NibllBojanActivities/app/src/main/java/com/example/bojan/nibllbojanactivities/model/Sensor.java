@@ -7,7 +7,7 @@ package com.example.bojan.nibllbojanactivities.model;
 public class Sensor {
     private int sensorID;
     private String naamSensor;
-    private double inputWaarde;
+    private Double inputWaarde;
     private int status;
 
     public int getSensorID() {
@@ -26,11 +26,11 @@ public class Sensor {
         this.naamSensor = naamSensor;
     }
 
-    public double getInputWaarde() {
+    public Double getInputWaarde() {
         return inputWaarde;
     }
 
-    public void setInputWaarde(double inputWaarde) {
+    public void setInputWaarde(Double inputWaarde) {
         this.inputWaarde = inputWaarde;
     }
 
@@ -42,7 +42,7 @@ public class Sensor {
         this.status = status;
     }
 
-    public Sensor(int sensorID, String naamSensor, double inputWaarde, int status) {
+    public Sensor(int sensorID, String naamSensor, Double inputWaarde, int status) {
         this.sensorID = sensorID;
         this.naamSensor = naamSensor;
         this.inputWaarde = inputWaarde;

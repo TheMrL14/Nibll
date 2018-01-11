@@ -16,6 +16,9 @@ import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.pi4j.wiringpi.Gpio;
+import com.pi4j.wiringpi.I2C;
+
 /**
  *
  * @author ilhan
@@ -27,6 +30,7 @@ public class GPIOController {
 
     public GPIOController() {
         initializeGPIOController();
+        initializeI2C();
     }
 
     private void initializeGPIOController() {
@@ -64,7 +68,7 @@ public class GPIOController {
 
                 try {
                     sendGET(link433);
-                    sendGET("http://nibll.local:5000/play/plop.mp3"); //Plop sound after change
+                    //sendGET("http://nibll.local:5000/play/plop.mp3"); //Plop sound after change
                 } catch (IOException ex) {
                     Logger.getLogger(GPIOController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -80,5 +84,36 @@ public class GPIOController {
             con.getInputStream();
         }
     }
+   
+    
+    private void initializeI2C() {
+        // setup wiringPi
+        if (Gpio.wiringPiSetup() == -1) {
+            System.out.println(" ==>> GPIO SETUP FAILED");
+            return;
+        }
 
+        int TC74Handle = I2C.wiringPiI2CSetup(0x48);
+
+        Timer I2CReadTimer = new Timer();
+        
+        I2CReadTimer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                int readValue = I2C.wiringPiI2CRead(TC74Handle);
+                
+                String postUrl = "http://localhost:8080/sensor/statusChangeById?id=0&status=";
+                postUrl += Integer.toString(readValue);
+                
+                //System.out.println(readValue);
+
+                try {
+                    sendGET(postUrl);
+                } catch (IOException ex) {
+                    Logger.getLogger(GPIOController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }, 0, 500);
+    }
+    
 }

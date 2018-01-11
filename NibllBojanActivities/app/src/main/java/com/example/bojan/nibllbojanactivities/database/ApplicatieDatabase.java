@@ -27,7 +27,7 @@ public abstract class ApplicatieDatabase extends RoomDatabase {
         if (mijnSingleton == null) {
             //maakt de database effectief aam
             mijnSingleton = Room.databaseBuilder(context.getApplicationContext(),
-                    ApplicatieDatabase.class, "DeviceActivity").addCallback(new Callback() {
+                    ApplicatieDatabase.class, "DeviceAddActivity").addCallback(new Callback() {
                 @Override
                 public void onCreate(@NonNull SupportSQLiteDatabase db) {
                     Log.d("Database gecreerd", "De databank werd aangemaakt");

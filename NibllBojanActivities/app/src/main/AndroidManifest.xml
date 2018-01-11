@@ -19,15 +19,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home" />
-        <activity
-            android:name=".deviceTest"
-            android:label="@string/title_activity_device_test"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".device" />
         <activity android:name=".devicesettings" />
         <activity android:name=".KamerActivity" />
+<<<<<<< HEAD
         <activity android:name=".DeviceActivity" />
         <activity android:name=".Sensoren"></activity>
+=======
+        <activity android:name=".DeviceAddActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+>>>>>>> 3d353893b74335977a491871ce468cc017121a9c
     </application>
 
 </manifest>

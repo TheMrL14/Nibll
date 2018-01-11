@@ -22,10 +22,7 @@
         <activity android:name=".device" />
         <activity android:name=".devicesettings" />
         <activity android:name=".KamerActivity" />
-<<<<<<< HEAD
-        <activity android:name=".DeviceActivity" />
         <activity android:name=".Sensoren"></activity>
-=======
         <activity android:name=".DeviceAddActivity" />
         <activity
             android:name=".MainActivity"
@@ -35,7 +32,6 @@
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar"></activity>
->>>>>>> 3d353893b74335977a491871ce468cc017121a9c
     </application>
 
 </manifest>

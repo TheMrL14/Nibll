@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/tileBlock"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
     android:layout_weight="1"
@@ -26,7 +26,7 @@
             android:maxHeight="100dp"
             android:padding="10dp"
             android:tint="@color/colorPrimaryDark"
-            app:srcCompat="@drawable/therm" />
+            app:srcCompat="@drawable/airco_icon" />
 
         <TextView
             android:id="@+id/deviceText"
@@ -34,10 +34,10 @@
             android:layout_height="wrap_content"
             android:paddingBottom="10dp"
             android:paddingLeft="15dp"
-            android:text="Temperatuur Bedroom"
+            android:text="Airco Bedroom"
             android:textColor="@android:color/white"
             android:textColorLink="@android:color/white"
-            android:textSize="20sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -53,6 +53,6 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:padding="5dp"
-            app:srcCompat="@drawable/airco_arrow" />
+            app:srcCompat="@drawable/lamp_scroll_off" />
     </LinearLayout>
 </LinearLayout>

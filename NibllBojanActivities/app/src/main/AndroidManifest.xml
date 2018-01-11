@@ -26,7 +26,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".devicesettings" />
         <activity android:name=".KamerActivity" />
-        <activity android:name=".DeviceActivity"></activity>
+        <activity android:name=".DeviceActivity" />
+        <activity android:name=".Sensoren"></activity>
     </application>
 
 </manifest>
